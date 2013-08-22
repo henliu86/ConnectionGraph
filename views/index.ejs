@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.styl' />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/foundation.min.css"/>
+		<script type="text/javascript" src="/javascripts/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="/javascripts/angular.js"></script>
+	</head>
+
+	<body ng-app="graphapp">
+		<div ng-view>
+		</div>
+	</body>
+
+
+
+
+	<script type="text/javascript" src="/AngularApp/app.js"></script>
+	<!-- services -->
+	<script type="text/javascript" src="/AngularApp/services/ConnectionService.js"></script>
+	
+	<!-- objects-->
+	<script type="text/javascript" src="/AngularApp/objects/ConnectionNode.js"></script>
+	<script type="text/javascript" src="/AngularApp/objects/BuildGraph.js"></script>
+
+	<!-- controllers -->
+	<script type="text/javascript" src="/AngularApp/controllers/ConnectionGraphCtrl.js"></script>
+	<script type="text/javascript" src="/AngularApp/controllers/debugCtrl.js"></script>
+
+	<!-- directives -->
+	<script type="text/javascript" src="/AngularApp/directives/ConnectionGraph.js"></script>
+	<script type="text/javascript" src="/AngularApp/directives/debug.js"></script>
+</html>
