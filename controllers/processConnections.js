@@ -1,6 +1,200 @@
+/****************************************
+* This class gets data from salesforce  *
+****************************************/
+
+exports.getUserIdToSubscriberIds = function(org,req){
+	var userIdToSubscriberIds;
+	//console.log('oauth Obj:');
+	//console.log(oauthObj);
+
+	var q = "select parentId,subscriberId from EntitySubscription where NetworkId = null";//default network
+	
+	//use access code to get access_token
+	org.authenticate({ code: req.session.oauth.code }, function(err, oauth){
+		if(!err) 
+		{
+			console.log('resp: ')
+			console.log(oauth);        
+			req.session.oauth = oauth; //reassign session oath object
+
+			//do your query
+			org.query(q,oauth, function(err, resp){
+				if(!err && resp.records){
+					var a = resp.records[0];
+					console.log('QUERY SUCCESS!!');
+				}
+				else
+				{
+					console.log(err);
+					console.log(resp);
+				}
+
+				console.log(req.session);
+			});
+		} else {
+			console.log('Error: ' + err.message);
+		}
+    });
+	/*
+	org.authenticate({ username: 'hliu@salesforce.chatter', password: 'salesforce1'}, function(err, resp){
+		// store the oauth object for this user
+		if(!err) 
+		{
+			oauth = resp;
+			console.log(resp);
+
+			//do your queries after you get oauth
+			org.query(q,oauth, function(err, resp){
+				if(!err && resp.records){
+					var a = resp.records[0];
+					console.log('QUERY SUCCESS!!');
+					console.log(resp);
+				}
+				else
+				{
+					console.log(err);
+					console.log(resp);
+				}
+			});
+		}
+	});
+	*/
+
+	
+
+	
+	
+	
+
+	
+	//grab data from salesforce and put it into local variables in here.
+	userIdToSubscriberIds = {
+		"00530000008B7WbAAK":[
+			"00530000008B7WTAA0",
+			"0F9300000001jcUCAQ",
+			"0F9300000001jcRCAQ",
+			"0F9300000001jcTCAQ"
+		],
+		"00530000008B7WjAAK":[
+			"00530000008B7WRAA0",
+			"00530000008B7WTAA0",
+			"00530000008B7WZAA0",
+			"00530000008B7WaAAK",
+			"00530000008B7WeAAK",
+			"00530000008B7WgAAK",
+			"00530000008B7WuAAK",
+			"00530000008B7WxAAK",
+			"00530000008L9njAAC",
+			"0F9300000001jcVCAQ"
+		],
+		"00530000008B7WuAAK":[
+			"00530000008B7WRAA0",
+			"00530000008B7WbAAK",
+			"00530000008B7WxAAK",
+			"00530000008L9njAAC",
+			"0F9300000001jcTCAQ"
+		],
+		"00530000008B7WfAAK":[
+			"00530000008B7WRAA0",
+			"00530000008B7WVAA0",
+			"00530000008B7WZAA0",
+			"00530000008B7WgAAK",
+			"00530000008B7WuAAK",
+			"00530000008L9njAAC",
+			"0F9300000001jcRCAQ"
+		],
+		"00530000008B7WxAAK":[
+			"00530000008B7WRAA0",
+			"00530000008B7WZAA0",
+			"00530000008B7WbAAK",
+			"00530000008B7WuAAK",
+			"00530000008L9njAAC",
+			"0F9300000001jcUCAQ",
+			"0F9300000001jcTCAQ"
+		],
+		"00530000008B7WWAA0":[
+			"00530000008L9njAAC"
+		],
+		"00530000008B7WiAAK":[
+			"00530000008B7WRAA0",
+			"00530000008B7WfAAK"
+		],
+		"00530000008B7WaAAK":[
+			"00530000008B7WRAA0",
+			"00530000008B7WZAA0",
+			"00530000008B7WeAAK",
+			"00530000008B7WgAAK",
+			"00530000008B7WjAAK",
+			"00530000008B7WuAAK",
+			"00530000008L9njAAC",
+			"0F9300000001jcVCAQ"
+		],
+		"00530000008B7WVAA0":[
+			"00530000008B7WRAA0",
+			"00530000008B7WZAA0",
+			"00530000008B7WfAAK",
+			"00530000008B7WgAAK",
+			"00530000008B7WuAAK",
+			"00530000008L9njAAC"
+		],
+		"00530000008B7WdAAK":[
+			"00530000008B7WeAAK",
+			"0F9300000001jcQCAQ"
+		],
+		"00530000008LL3BAAW":[
+			"00530000008L9njAAC"
+		],
+		"00530000008B7WcAAK":[
+			"00530000008B7WRAA0"
+		],
+		"00530000008B7WZAA0":[
+			"00530000008B7WRAA0",
+			"00530000008B7WgAAK",
+			"00530000008B7WuAAK",
+			"00530000008L9njAAC"
+		],
+		"00530000008B7WeAAK":[
+			"00530000008B7WiAAK"
+		],
+		"00530000008L9njAAC":[
+			"00530000008B7WcAAK",
+			"00530000008B7WdAAK",
+			"00530000008LL3BAAW",
+			"0F9300000001jcSCAQ",
+			"0F9300000001jcQCAQ",
+			"0F9300000001jcTCAQ",
+			"0F9300000001jcPCAQ",
+			"0F9300000001jcSCAQ",
+			"0F9300000001jcQCAQ",
+			"0F9300000001jcTCAQ",
+			"0F9300000001jcPCAQ"
+		],
+		"00530000008B7WvAAK":[
+			"00530000008B7WJAA0",
+			"00530000008B7WTAA0",
+			"00530000008B7WfAAK",
+			"00530000008L9njAAC",
+			"0F9300000001jcRCAQ"
+		],
+		"00530000008B7WRAA0":[
+			"00530000008B7WiAAK",
+			"0F9300000001jcVCAQ",
+			"0F9300000001jcSCAQ"
+		],
+		"00530000008B7WTAA0":[
+			"00530000008B7WRAA0",
+			"00530000008B7WZAA0",
+			"00530000008B7WcAAK",
+			"00530000008B7WdAAK",
+			"00530000008B7WfAAK",
+			"00530000008B7WgAAK",
+			"00530000008B7WuAAK"
+		]};
+	return JSON.stringify(userIdToSubscriberIds);
+};
+
 
 exports.getChatterGroupIdToSubscriberIds = function(){
-	
 	// //map all subscribers
 	// List<EntitySubscription> allsubscriptions = [select parentId,subscriberId from EntitySubscription where NetworkId = :Network.getNetworkId()];
 	// for(EntitySubscription e : allsubscriptions) //list of all users
@@ -252,131 +446,4 @@ exports.getIdToName = function(){
 		"00530000008B7WRAA0":"Elliot Executive"
 		};
 	return JSON.stringify(idToName);
-};
-
-exports.getUserIdToSubscriberIds = function(){
-	//grab data from salesforce and put it into local variables in here.
-	var userIdToSubscriberIds = {
-		"00530000008B7WbAAK":[
-			"00530000008B7WTAA0",
-			"0F9300000001jcUCAQ",
-			"0F9300000001jcRCAQ",
-			"0F9300000001jcTCAQ"
-		],
-		"00530000008B7WjAAK":[
-			"00530000008B7WRAA0",
-			"00530000008B7WTAA0",
-			"00530000008B7WZAA0",
-			"00530000008B7WaAAK",
-			"00530000008B7WeAAK",
-			"00530000008B7WgAAK",
-			"00530000008B7WuAAK",
-			"00530000008B7WxAAK",
-			"00530000008L9njAAC",
-			"0F9300000001jcVCAQ"
-		],
-		"00530000008B7WuAAK":[
-			"00530000008B7WRAA0",
-			"00530000008B7WbAAK",
-			"00530000008B7WxAAK",
-			"00530000008L9njAAC",
-			"0F9300000001jcTCAQ"
-		],
-		"00530000008B7WfAAK":[
-			"00530000008B7WRAA0",
-			"00530000008B7WVAA0",
-			"00530000008B7WZAA0",
-			"00530000008B7WgAAK",
-			"00530000008B7WuAAK",
-			"00530000008L9njAAC",
-			"0F9300000001jcRCAQ"
-		],
-		"00530000008B7WxAAK":[
-			"00530000008B7WRAA0",
-			"00530000008B7WZAA0",
-			"00530000008B7WbAAK",
-			"00530000008B7WuAAK",
-			"00530000008L9njAAC",
-			"0F9300000001jcUCAQ",
-			"0F9300000001jcTCAQ"
-		],
-		"00530000008B7WWAA0":[
-			"00530000008L9njAAC"
-		],
-		"00530000008B7WiAAK":[
-			"00530000008B7WRAA0",
-			"00530000008B7WfAAK"
-		],
-		"00530000008B7WaAAK":[
-			"00530000008B7WRAA0",
-			"00530000008B7WZAA0",
-			"00530000008B7WeAAK",
-			"00530000008B7WgAAK",
-			"00530000008B7WjAAK",
-			"00530000008B7WuAAK",
-			"00530000008L9njAAC",
-			"0F9300000001jcVCAQ"
-		],
-		"00530000008B7WVAA0":[
-			"00530000008B7WRAA0",
-			"00530000008B7WZAA0",
-			"00530000008B7WfAAK",
-			"00530000008B7WgAAK",
-			"00530000008B7WuAAK",
-			"00530000008L9njAAC"
-		],
-		"00530000008B7WdAAK":[
-			"00530000008B7WeAAK",
-			"0F9300000001jcQCAQ"
-		],
-		"00530000008LL3BAAW":[
-			"00530000008L9njAAC"
-		],
-		"00530000008B7WcAAK":[
-			"00530000008B7WRAA0"
-		],
-		"00530000008B7WZAA0":[
-			"00530000008B7WRAA0",
-			"00530000008B7WgAAK",
-			"00530000008B7WuAAK",
-			"00530000008L9njAAC"
-		],
-		"00530000008B7WeAAK":[
-			"00530000008B7WiAAK"
-		],
-		"00530000008L9njAAC":[
-			"00530000008B7WcAAK",
-			"00530000008B7WdAAK",
-			"00530000008LL3BAAW",
-			"0F9300000001jcSCAQ",
-			"0F9300000001jcQCAQ",
-			"0F9300000001jcTCAQ",
-			"0F9300000001jcPCAQ",
-			"0F9300000001jcSCAQ",
-			"0F9300000001jcQCAQ",
-			"0F9300000001jcTCAQ",
-			"0F9300000001jcPCAQ"
-		],
-		"00530000008B7WvAAK":[
-			"00530000008B7WJAA0",
-			"00530000008B7WTAA0",
-			"00530000008B7WfAAK",
-			"00530000008L9njAAC",
-			"0F9300000001jcRCAQ"
-		],
-		"00530000008B7WRAA0":[
-			"00530000008B7WiAAK",
-			"0F9300000001jcVCAQ",
-			"0F9300000001jcSCAQ"
-		],
-		"00530000008B7WTAA0":[
-			"00530000008B7WRAA0",
-			"00530000008B7WZAA0",
-			"00530000008B7WcAAK",
-			"00530000008B7WdAAK",
-			"00530000008B7WfAAK",
-			"00530000008B7WgAAK",
-			"00530000008B7WuAAK"
-		]};
-	return JSON.stringify(userIdToSubscriberIds);
 };
