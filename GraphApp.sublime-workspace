@@ -1,0 +1,228 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/henry.liu/Documents/workspace/Ralph Eddy Org/src/classes/GlobalAttendeeAddController.cls",
+		"/Users/henry.liu/Documents/workspace/Ralph Eddy Org/src/classes/checkInController.cls",
+		"/Users/henry.liu/Documents/workspace/Ralph Eddy Org/src/pages/CheckIn.page",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/app.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/views/index.ejs",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/directives/ConnectionGraph.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/services/ConnectionService.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/views/ConnectionGraph.html",
+		"/Users/henry.liu/Documents/workspace/GraphApp/controllers/processConnections.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/routes/index.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/app.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/objects/ConnectionNode.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/controllers/ConnectionNode.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/controllers/BuildGraph.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/routes/oauth.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/routes/user.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/routes/oauthcallback.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/package.json",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/controllers/debugCtrl.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/views/debug.html",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/directives/debug.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/Data/data.js",
+		"/Users/henry.liu/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/henry.liu/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/services/connectionService.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/controllers/debug.js",
+		"/Users/henry.liu/Documents/workspace/Heroku/testAngular.js",
+		"/Users/henry.liu/Documents/workspace/Heroku/app/controllers/testAngular.js",
+		"/Users/henry.liu/Documents/workspace/My Chatter Org/src/classes/ScheduledChatterPost.cls",
+		"/Users/henry.liu/Documents/workspace/My Chatter Org/src/classes/BuildingGraph.cls",
+		"/Users/henry.liu/Documents/workspace/Heroku/ConnectionNode.js",
+		"/Users/henry.liu/Documents/workspace/Heroku/BuildGraph.js",
+		"/Users/henry.liu/Documents/workspace/Heroku/app/views/test.html",
+		"/Users/henry.liu/Documents/workspace/My Chatter Org/src/pages/GraphConnections.page",
+		"/Users/henry.liu/Documents/workspace/My Chatter Org/src/classes/BuildingGraphHelper.cls",
+		"/Users/henry.liu/Library/Application Support/Sublime Text 2/Packages/User/Java.sublime-settings",
+		"/Users/henry.liu/Library/Application Support/Sublime Text 2/Packages/User/mavensmate.sublime-settings",
+		"/Users/henry.liu/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"4s",
+			"attendeeDiv",
+			"concat",
+			"00530000008B7WeAAK",
+			"00530000008B7WbAAK",
+			"parseSalesforceObjectList",
+			"){\n",
+			"numberOfHop",
+			"== []",
+			"pathsToDesire",
+			"		\"00530000008L9njAAC\":[\n00530000008B",
+			"00530000008B7WJAA0530000008L9njAAC",
+			"initMe",
+			"gold",
+			"numberOfHop",
+			"listContains",
+			"listNodeContains",
+			"listContains",
+			"getPathToDesired",
+			"System.debug",
+			"me.id",
+			":{},\n",
+			"listContains",
+			"{get;set;}",
+			"Home",
+			"end",
+			"home",
+			"popup",
+			"live",
+			"<c:",
+			"\"//,",
+			">\n",
+			"phone",
+			"superHero",
+			"b_of_a_iPad_chatter",
+			"chatter_0",
+			"sharing",
+			"binFileInput",
+			"keySet",
+			"00530000008B7WdAAK",
+			"userIAmFollowing",
+			"iAmFollowing",
+			"buildHelper",
+			"setParentIdToSubscribers()",
+			"numberOfHop",
+			"showFollowDiv",
+			"finalShortestPath",
+			"pathToDesire"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"console.log",
+			"rootNode.userId",
+			";",
+			"finalShortestPaths",
+			"pathsToDesire"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MavensMate-OutputPanel":
+	{
+		"height": 127.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 136.0,
+	"status_bar_visible": true
+}

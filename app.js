@@ -38,7 +38,7 @@ if ('development' == app.get('env')) {
 var org = nforce.createConnection({
 	clientId: '3MVG99OxTyEMCQ3gG9qUh.ce54NOXg4vsqI4PZP8f965xeGUWTcuFiRHtuJWlowCQw993i51po9G4WECLNlSW',
 	clientSecret: '8428401456520732541',
-	redirectUri: 'https://damp-castle-2728.herokuapp.com/oauth/callback?', //damp-castle-2728.herokuapp.com
+	redirectUri: 'http://localhost:3000/oauth/callback?',//'https://damp-castle-2728.herokuapp.com/oauth/callback?'
 	apiVersion: 'v28.0',  // optional, defaults to current salesforce API version
 	environment: 'production',  // optional, salesforce 'sandbox' or 'production', production default
 	mode: 'multi' // optional, 'single' or 'multi' user mode, multi default
@@ -46,6 +46,7 @@ var org = nforce.createConnection({
 app.set('alreadyOAuth',false);
 
 //routes
+routes.boot(org); //pass org in here to route index.js
 app.get('/',function(req, res){
 	res.redirect(org.getAuthUri());
 });
@@ -60,16 +61,16 @@ app.get('/auth/salesforce',function(req, res){
 //////////////////////////
 //get data from salesforce
 app.get('/UserIdToSubscriberIds', function(req,res){
-	res.send(myData.getUserIdToSubscriberIds(org, req));
+	myData.getUserIdToSubscriberIds(org, req, res);
 });
 app.get('/ChatterGroupIdToSubscriberIds', function(req,res){
-	res.send(myData.getChatterGroupIdToSubscriberIds());
+	myData.getChatterGroupIdToSubscriberIds(org, req, res);
 });
 app.get('/UserIdToChatterGroupIds', function(req,res){
-	res.send(myData.getUserIdToChatterGroupIds());
+	myData.getUserIdToChatterGroupIds(org, req, res);
 });
 app.get('/IdToName', function(req,res){
-	res.send(myData.getIdToName());
+	myData.getIdToName(org, req, res);
 });
 //////////////////////////
 

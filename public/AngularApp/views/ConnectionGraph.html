@@ -1,5 +1,100 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/d3stylesheet.css"/>
+<style>
+	div.bar {
+	    display: inline-block;
+	    width: 20px;
+	    height: 75px;   /* We'll override this later */
+	    background-color: teal;
+	}
+	#connectionGraphic
+	{
+		width:100%;
+	}
+	.node
+	{
+		position:relative;
+		float:left;
+	}
+	.profileImgDiv
+	{
+		position:relative;
+		float:left;
+	}
+	.profileDetailDiv
+	{
+		position:relative;
+		float:left;
+		padding: 0 10px;
+	}
+	.profileImg
+	{
+		width:50px;
+		border-radius: 15px;
+	}
+	ul
+	{
+		list-style: none;
+	}
+	.list-group-item
+	{
+		position:relative;
+		float:left;
+		clear:both;
+		padding:3px;
+		margin: 5px;
+		//-webkit-transition:all 0.4s ease-in-out;
+	}
+	.badge
+	{
+		background-color: rgba(226, 226, 226, 0.96);
+	}
+	.clear
+	{
+		clear:both;
+	}
+
+</style>
+
 <div ng-app="graphapp">
 	<div myjson>
+		<!--
+		<div id="myD3Div"></div>
+		-->
+		I ({{idToName[ "userMap" ][ myUserId ].Name}}) have {{finalShortestPaths.length}} paths to {{idToName[ "userMap" ][ desiredUserId ].Name}}
+		
+		<!--<input type="search" ng-model="q" placeholder="filter friends..." />-->
+		<div id="connectionGraphic" connectionGraphic>
+			<div class="node"  ng-repeat="path in finalShortestPaths">
+				<h3>Path</h3>
+				<ul class="list-group">
+					<li class="list-group-item animate-repeat" ng-repeat="user in path | filter:q">
+						<div class="profileImgDiv">
+							<a href="{{ idToName[ 'userMap' ][ user ].Id }}">
+								<img class="profileImg" src="{{ idToName[ 'userMap' ][ user ].FullPhotoUrl }}" alt="img"/>
+							</a>
+						</div>
+						<div class="profileDetailDiv">
+							<span class="badge">
+								<a href="{{ idToName[ 'userMap' ][ user ].Id }}">
+									{{ idToName[ "userMap" ][ user ].Name }}
+								</a>
+							</span>
+							<br/>
+							<span class="pull-left clear" style="color:gray;">
+								{{ idToName[ "userMap" ][ user ].Title }}
+							</span>
+							<span class="pull-left clear">
+								<a href="mailto:{{ idToName[ 'userMap' ][ user ].Email }}">{{ idToName[ 'userMap' ][ user ].Email }}</a>
+							</span>
+							<span class="pull-left clear">
+								<a href="tel:{{ idToName[ 'userMap' ][ user ].Phone }}">{{ idToName[ 'userMap' ][ user ].Phone }}</a>
+							</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--
 		<p>
 			<h1>userIdToSubscriberIds</h1>
 			{{userIdToSubscriberIds}}
@@ -16,6 +111,14 @@
 			<h1>idToName</h1>
 			{{idToName}}
 		</p>
-	</div>
+		<p>
+			{{finalShortestPaths}}
+		</p>
 
+		<p>
+			<label>my node:</label>
+			{{myNode}}
+		</p>-->
+	</div>
+	<script type="text/javascript" src="/javascripts/d3Code.js"></script>
 </div>

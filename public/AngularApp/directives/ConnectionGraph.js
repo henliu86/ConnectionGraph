@@ -8,3 +8,14 @@ angular.module("graphapp").directive("myjson",function(){
 		}
 	}
 });
+
+angular.module("graphapp").directive("connectionGraphic",function(){
+	return {
+		restrict: "A",
+		controller: "ConnectionGraphCtrl",
+		link: function(scope,element){
+			
+			
+		}
+	}
+});

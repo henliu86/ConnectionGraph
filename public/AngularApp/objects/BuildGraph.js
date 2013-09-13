@@ -75,14 +75,26 @@ BuildingGraph.prototype = {
 	{
 		//Users I am following
 		var iAmFollowing = this.userIdToSubscriberIds[this.rootNode.userId]; //List<id> //add all users I am following
-		if(iAmFollowing != null)
+		if(iAmFollowing != null) //if I have users I am following
 		{
 			var allChatGroupIFollow = this.userIdToChatterGroupIds[this.rootNode.userId]; //List<Id>
-			if(allChatGroupIFollow != null)
-				iAmFollowing.concat(allChatGroupIFollow).unique(); //add all groups I am following
+			console.log("Groups I am following:");
+			console.log(allChatGroupIFollow);
+			if(allChatGroupIFollow != null) //if I have chatter groups I am following
+			{
+				console.log('user/chattergroup I am following before concat:');
+				console.log(iAmFollowing);
+				console.log(allChatGroupIFollow);
+				iAmFollowing = iAmFollowing.concat(allChatGroupIFollow).unique(); //add all groups I am following
+				console.log('user/chattergroup I am following after:');
+				console.log(iAmFollowing);
+			}
 		}
-		else
+		else //just add chatter groups
 			iAmFollowing = this.userIdToChatterGroupIds[this.rootNode.userId];
+
+		console.log('user/chattergroup I am following:');
+		console.log(iAmFollowing);
 
 		//creating connectionNodes for ME
 		var myFollowingNode = []; //List<ConnectionNode>
@@ -123,7 +135,6 @@ BuildingGraph.prototype = {
 	{
 		console.log('\n\n--Current Connection Node: ' + connNode.userId);
 		console.log(connNode);
-		//console.log(connNode);
 		var pathsToDesire = []; //find the shortest path. If this is not null then there is a path //List<List<ConnectionNode>>
 		if(connNode.userId == this.desiredUserId) //you found him/her?!?
 		{
@@ -146,7 +157,7 @@ BuildingGraph.prototype = {
 					//console.log(connNode.userId+ ' is following these chatter group: '+ followingChatGroups);
 					if(followingChatGroups != null) //make sure you are actually following at least 1 chatter group so don't input null
 					{
-						meFollowing.concat(followingChatGroups).unique(); //add all groups I am following
+						meFollowing = meFollowing.concat(followingChatGroups).unique(); //add all groups I am following
 					}	
 				}
 				else //not following any users so just create a new list
