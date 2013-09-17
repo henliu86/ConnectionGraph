@@ -38,7 +38,7 @@ if ('development' == app.get('env')) {
 var org = nforce.createConnection({
 	clientId: '3MVG99OxTyEMCQ3gG9qUh.ce54NOXg4vsqI4PZP8f965xeGUWTcuFiRHtuJWlowCQw993i51po9G4WECLNlSW',
 	clientSecret: '8428401456520732541',
-	redirectUri: 'http://localhost:3000/oauth/callback?',//'https://damp-castle-2728.herokuapp.com/oauth/callback?'
+	redirectUri: 'https://damp-castle-2728.herokuapp.com/oauth/callback?', //'http://localhost:3000/oauth/callback?',
 	apiVersion: 'v28.0',  // optional, defaults to current salesforce API version
 	environment: 'production',  // optional, salesforce 'sandbox' or 'production', production default
 	mode: 'multi' // optional, 'single' or 'multi' user mode, multi default
