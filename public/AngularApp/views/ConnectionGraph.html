@@ -53,13 +53,28 @@
 		clear:both;
 	}
 
+	/********* for d3 ********/
+	.link {
+		fill: none;
+		stroke: #9ecae1;
+		stroke-width: 1.5px;
+	}
+
+	.node text {
+		pointer-events: none;
+		font: 10px sans-serif;
+	}
+	.node:not(:hover) .nodetext {
+		display: none;
+	}
+
 </style>
 
 <div ng-app="graphapp">
-	<div myjson>
-		<!--
+	<div id="myjson" myjson>
+		
 		<div id="myD3Div"></div>
-		-->
+		
 		I ({{idToName[ "userMap" ][ myUserId ].Name}}) have {{finalShortestPaths.length}} paths to {{idToName[ "userMap" ][ desiredUserId ].Name}}
 		
 		<!--<input type="search" ng-model="q" placeholder="filter friends..." />-->
@@ -68,33 +83,66 @@
 				<h3>Path</h3>
 				<ul class="list-group">
 					<li class="list-group-item animate-repeat" ng-repeat="user in path | filter:q">
-						<div class="profileImgDiv">
-							<a href="{{ idToName[ 'userMap' ][ user ].Id }}">
-								<img class="profileImg" src="{{ idToName[ 'userMap' ][ user ].FullPhotoUrl }}" alt="img"/>
-							</a>
-						</div>
-						<div class="profileDetailDiv">
-							<span class="badge">
+						<!-- show user -->
+						<div ng-show=" idToName[ 'userMap' ][ user ] ">
+							<div class="profileImgDiv">
 								<a href="{{ idToName[ 'userMap' ][ user ].Id }}">
-									{{ idToName[ "userMap" ][ user ].Name }}
+									<img class="profileImg" src="{{ idToName[ 'userMap' ][ user ].FullPhotoUrl }}" alt="img"/>
 								</a>
-							</span>
-							<br/>
-							<span class="pull-left clear" style="color:gray;">
-								{{ idToName[ "userMap" ][ user ].Title }}
-							</span>
-							<span class="pull-left clear">
-								<a href="mailto:{{ idToName[ 'userMap' ][ user ].Email }}">{{ idToName[ 'userMap' ][ user ].Email }}</a>
-							</span>
-							<span class="pull-left clear">
-								<a href="tel:{{ idToName[ 'userMap' ][ user ].Phone }}">{{ idToName[ 'userMap' ][ user ].Phone }}</a>
-							</span>
+							</div>
+							<div class="profileDetailDiv">
+								<span class="badge">
+									<a href="{{ idToName[ 'userMap' ][ user ].Id }}">
+										{{ idToName[ "userMap" ][ user ].Name }} <!--{{ globalUserMap[ user ].d3index }}-->
+									</a>
+								</span>
+								<br/>
+								<span class="pull-left clear" style="color:gray;">
+									{{ idToName[ "userMap" ][ user ].Title }}
+								</span>
+								<span class="pull-left clear">
+									<a href="mailto:{{ idToName[ 'userMap' ][ user ].Email }}">{{ idToName[ 'userMap' ][ user ].Email }}</a>
+								</span>
+								<span class="pull-left clear">
+									<a href="tel:{{ idToName[ 'userMap' ][ user ].Phone }}">{{ idToName[ 'userMap' ][ user ].Phone }}</a>
+								</span>
+							</div>
+						</div>
+
+						<!-- show chatter group -->
+						<div ng-show=" idToName[ 'chatterGroupMap' ][ user ] ">
+							<div class="profileImgDiv">
+								<a href="{{ idToName[ 'chatterGroupMap' ][ user ].Id }}">
+									<img class="profileImg" src="{{ idToName[ 'chatterGroupMap' ][ user ].FullPhotoUrl }}" alt="img"/>
+								</a>
+							</div>
+							<div class="profileDetailDiv">
+								<span class="badge">
+									<a href="{{ idToName[ 'chatterGroupMap' ][ user ].Id }}">
+										{{ idToName[ "chatterGroupMap" ][ user ].Name }} <!--{{ globalUserMap[ user ].d3index }}-->
+									</a>
+								</span>
+								<br/>
+								<span class="pull-left clear" style="color:gray;">
+									{{ idToName[ "chatterGroupMap" ][ user ].Title }}
+								</span>
+								<span class="pull-left clear">
+									<a href="mailto:{{ idToName[ 'chatterGroupMap' ][ user ].Email }}">{{ idToName[ 'chatterGroupMap' ][ user ].Email }}</a>
+								</span>
+								<span class="pull-left clear">
+									<a href="tel:{{ idToName[ 'chatterGroupMap' ][ user ].Phone }}">{{ idToName[ 'chatterGroupMap' ][ user ].Phone }}</a>
+								</span>
+							</div>
 						</div>
 					</li>
 				</ul>
 			</div>
 		</div>
+		<br/><br/>
+		
 		<!--
+		<div style="position:relative;float:left;clear:both;"><p>{{d3object}}</p></div>
+		{{globalUserMap}}
 		<p>
 			<h1>userIdToSubscriberIds</h1>
 			{{userIdToSubscriberIds}}
@@ -120,5 +168,4 @@
 			{{myNode}}
 		</p>-->
 	</div>
-	<script type="text/javascript" src="/javascripts/d3Code.js"></script>
 </div>

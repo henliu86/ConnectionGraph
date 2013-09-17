@@ -1,0 +1,72 @@
+{
+	"nodes":
+		[
+			{
+				"name":"Henry Liu",
+				"group":0,
+				"imgUrl": "https://c.na1.content.force.com/profilephoto/729300000009fti/F"
+			},
+			{
+				"name":"Vince West",
+				"group":1,
+				"imgUrl": "https://c.na1.content.force.com/profilephoto/72930000000c0Xt/F"
+			},
+			{
+				"name":"Elliot Executive",
+				"group":2,
+				"imgUrl": "https://c.na1.content.force.com/profilephoto/72930000000c0Xi/F"
+			},
+			{
+				"name":"Wendy West",
+				"group":3,
+				"imgUrl": "https://c.na1.content.force.com/profilephoto/72930000000c0Xu/F"
+			},
+			{
+				"name":"Valerie East",
+				"group":4,
+				"imgUrl": "https://c.na1.content.force.com/profilephoto/72930000000c0Xv/F"
+			},
+			{
+				"name":"Vanessa Central",
+				"group":5,
+				"imgUrl": "https://c.na1.content.force.com/profilephoto/72930000000c0Xz/F"
+			}
+			
+		],
+	"links":
+		[
+			{
+			"source":0,
+			"target":1,
+			"value": null 
+			},
+			{
+			"source":0,
+			"target":3 
+			},
+			{
+			"source":1,
+			"target":2
+			},
+			{
+			"source":1,
+			"target":3
+			},
+			{
+			"source":2,
+			"target":5
+			},
+			{
+			"source":3,
+			"target":4
+			},
+			{
+			"source":3,
+			"target":4
+			},
+			{
+			"source":4,
+			"target":5
+			}
+		]
+}

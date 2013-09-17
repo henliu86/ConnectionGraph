@@ -13,6 +13,8 @@ function ConnectionNode(usrId,connNodes)
 	this.numberOfHop;
 	this.toDesiredNode = new Array();
     this.isChatterGroup = (this.userId.substring(0,3) == '0F9') ? true : false;
+
+    this.d3index; //this is for d3 so we can graph out all the connections
 }
 
 //functions

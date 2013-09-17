@@ -6,24 +6,27 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	$scope.includeChatterGroups = false;
 	var numProcessed = 0;
 	var buildDefer = $q.defer();
-	$scope.myNode = {};
+	$scope.myNode = {}; //node of me
 	$scope.finalShortestPaths = [];
+	$scope.globalUserMap; //map of all users
+	$scope.d3object; //d3 node/link object. use for d3
 	
 	//check if all processes have been completed
-	function allDone(){
+	function allDone(callback){
 		if(numProcessed == 4)
 		{
-			buildMyGraph();
+			buildMyGraph(callback);
 		}
 	}
 
 	//factory getting json string into scope
-	$scope.getSalesforceJSON = function()	
+	$scope.getSalesforceJSON = function(callback)	
 	{
+		console.log(callback);
 		salesforceconnections.getUserIdToSubscriberIds().then(function(res){
 			$scope.userIdToSubscriberIds = res.data;
 			numProcessed++;
-			allDone();
+			allDone(callback);
 
 		});
 		if($scope.includeChatterGroups)
@@ -31,12 +34,12 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 			salesforceconnections.getChatterGroupIdToSubscriberIds().then(function(res){
 				$scope.chatterGroupIdToSubscriberIds = res.data;
 				numProcessed++;
-				allDone();
+				allDone(callback);
 			});
 			salesforceconnections.getUserIdToChatterGroupIds().then(function(res){
 				$scope.userIdToChatterGroupIds = res.data;
 				numProcessed++;
-				allDone();
+				allDone(callback);
 			});
 		}
 		else
@@ -44,22 +47,24 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 			$scope.chatterGroupIdToSubscriberIds = {};
 			$scope.userIdToChatterGroupIds = {};
 			numProcessed = numProcessed+2;
-			allDone();
+			allDone(callback);
 		}
 		salesforceconnections.getIdToName().then(function(res){
 			$scope.idToName = res.data;
 			numProcessed++;
-			allDone();
+			allDone(callback);
 		});
 	}
 
 	//once all data have been loaded, directive calls this function to build graph
-	function buildMyGraph(){
+	function buildMyGraph(callback){
 		console.log("build my graph");
 		var buildGraph = new BuildingGraph($scope.myUserId,$scope.desiredUserId); //current user id, desire user id
 		buildGraph.initMe($scope.userIdToSubscriberIds,$scope.chatterGroupIdToSubscriberIds,$scope.userIdToChatterGroupIds,$scope.idToName);
 		buildGraph.build();
 		$scope.myNode = buildGraph.rootNode;
+		$scope.globalUserMap = buildGraph.globalUsers;
+		$scope.d3object = buildGraph.d3object;
 		var shorestPaths = buildGraph.finalShortestPaths;
 		for(var i=0;i<shorestPaths.length;i++)
 		{
@@ -74,7 +79,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 			}
 		}
 
-
+		callback($scope);
 	}
 	
 });

@@ -4,3 +4,9 @@ svg .pumpkin
 	stroke: orange;
 	stroke-width: 5;
 }
+
+.mySvgClass
+{
+	position:relative;
+	float:left;
+}

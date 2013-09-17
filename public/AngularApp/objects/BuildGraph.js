@@ -19,6 +19,30 @@ function BuildingGraph(currentUserId, desireUsrId)
 	this.idToName = {}; //Map<Id,String> //id of user or chatter group to it's name
 	//this should be standard controller, however there's no custom vf page available on user. SO this should be enter by user
 	this.desiredUserId = desireUsrId; //Id //id of the user you are trying to see the connection with
+	
+
+	/****************************************************
+	* This is for d3 to use when creating the node/links. format is as follow:
+	*	{
+	*		"nodes":[
+	*			{
+	*				"name":"Henry Liu",
+	*				"imgUrl": "https://c.na1.content.force.com/profilephoto/729300000009fti/F"
+	*			},
+	*			{...}
+	*			],
+	*		"links":[
+	*			{
+		*			"source":0,
+		*			"target":1
+	*			},
+	*			{...}
+	*			]
+	*	}
+	****************************************************/
+	this.d3object= {"nodes":[],"links":[]}; 
+	this.d3indexCount = 0; //count increment for d3 index
+
 	var that = this;
 }
 
@@ -73,6 +97,12 @@ BuildingGraph.prototype = {
 	/****************** This will build the whole graph ******************/
 	build : function()
 	{
+		//set my own d3indexCount to 0
+		this.rootNode.d3index = this.d3indexCount++;
+		//add d3 node
+		var me = this.idToName[ 'userMap' ][ this.rootNode.userId ];
+		this.addD3Node(this.rootNode.userId,me.Name, me.FullPhotoUrl);
+
 		//Users I am following
 		var iAmFollowing = this.userIdToSubscriberIds[this.rootNode.userId]; //List<id> //add all users I am following
 		if(iAmFollowing != null) //if I have users I am following
@@ -101,7 +131,17 @@ BuildingGraph.prototype = {
 		for(var i=0; i< iAmFollowing.length; i++)
 		{
 			var c = new ConnectionNode(iAmFollowing[i]);
-			//this.globalUsers[iAmFollowing[i]] = c; //add user you follow to globalUsers Mapping. This is to check if node for current user is created already
+
+			c.d3index = this.d3indexCount++; //up the index for each unique node for d3
+			//add d3 node
+			var newNode = this.idToName[ 'userMap' ][ c.userId ];
+			this.addD3Node(c.userId,newNode.Name, newNode.FullPhotoUrl);
+			//add d3 link
+			this.addD3Links(this.rootNode.d3index,c.d3index);
+
+			//not sure if I should comment this line out or not. gotta figure this out later, for now it works!
+			this.globalUsers[iAmFollowing[i]] = c; //add user you follow to globalUsers Mapping. This is to check if node for current user is created already
+			
 			myFollowingNode.push(c);
 		}	
 		this.rootNode.following = myFollowingNode;//add my following nodes into rootNode
@@ -181,6 +221,17 @@ BuildingGraph.prototype = {
 
 					if(alreadyTraverseNode == null) //if not in here, then add to the unique user mapping
 					{
+						c.d3index = this.d3indexCount++; //up the index for each unique node for d3
+						//add d3 node
+						var newNode;
+						if(connNode.isChatterGroup == false) 
+							newNode = this.idToName[ 'userMap' ][ c.userId ];
+						else
+							newNode = this.idToName[ 'chatterGroupMap' ][ c.userId ];
+						this.addD3Node(c.userId,newNode.Name, newNode.FullPhotoUrl);
+						//add d3 link
+						this.addD3Links(connNode.d3index,c.d3index);
+
 						this.globalUsers[meFollowing[i]] = c; //add the user person is following to globalUsers Mapping.
 						connNode.following.push(c); //only add to following list IF USER IS NOT ALREADY ADDED! This is because you don't want to traverse to the same node again.
 					}
@@ -210,6 +261,8 @@ BuildingGraph.prototype = {
 							}
 							//else //that means we found a loop so don't do ANYTHING!!
 						}
+						//add d3 link even if person is already traverse
+						this.addD3Links(connNode.d3index,alreadyTraverseNode.d3index);
 					}
 				}
 				//console.log('Following nodes: ');
@@ -323,5 +376,24 @@ BuildingGraph.prototype = {
 			if(listOfNodes[i].userId == lookForNode.userId)
 				return true;
 		return false;
+	},
+
+	//add d3 node object
+	addD3Node : function(userId, nodeName, nodeImgUrl)
+	{
+		var newNode = {};
+		newNode.Id = userId;
+		newNode.Name = nodeName;
+		newNode.ImgUrl = nodeImgUrl;
+		this.d3object["nodes"].push(newNode);
+	},
+	//add d3 links
+	addD3Links : function(linkSource,linkTarget)
+	{
+		var newLink = {};
+		newLink.source = linkSource;
+		newLink.target = linkTarget;
+		this.d3object["links"].push(newLink);
 	}
+
 }
