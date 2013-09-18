@@ -40,7 +40,7 @@ ul
 	clear:both;
 	padding:3px;
 	margin: 5px;
-	//-webkit-transition:all 0.4s ease-in-out;
+	/*-webkit-transition:all 0.4s ease-in-out;*/
 }
 .badge
 {
@@ -51,7 +51,7 @@ ul
 	clear:both;
 }
 
-//bootstrap mods
+/*bootstrap mods*/
 .well
 {
 	padding: 6px;
