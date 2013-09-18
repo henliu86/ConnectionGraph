@@ -34,6 +34,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+/*
 //setup salesforce oauth
 var org = nforce.createConnection({
 	clientId: '3MVG99OxTyEMCQ3gG9qUh.ce54NOXg4vsqI4PZP8f965xeGUWTcuFiRHtuJWlowCQw993i51po9G4WECLNlSW',
@@ -43,10 +44,12 @@ var org = nforce.createConnection({
 	environment: 'production',  // optional, salesforce 'sandbox' or 'production', production default
 	mode: 'multi' // optional, 'single' or 'multi' user mode, multi default
 });
+*/
 app.set('alreadyOAuth',false);
 
 //routes
-routes.boot(org); //pass org in here to route index.js
+//routes.boot(org); //pass org in here to route index.js
+//org = routes.getOrg();
 app.get('/',function(req, res){
 	res.redirect(org.getAuthUri());
 });
@@ -61,16 +64,16 @@ app.get('/auth/salesforce',function(req, res){
 //////////////////////////
 //get data from salesforce
 app.get('/UserIdToSubscriberIds', function(req,res){
-	myData.getUserIdToSubscriberIds(org, req, res);
+	myData.getUserIdToSubscriberIds(routes.getOrg(), req, res);
 });
 app.get('/ChatterGroupIdToSubscriberIds', function(req,res){
-	myData.getChatterGroupIdToSubscriberIds(org, req, res);
+	myData.getChatterGroupIdToSubscriberIds(routes.getOrg(), req, res);
 });
 app.get('/UserIdToChatterGroupIds', function(req,res){
-	myData.getUserIdToChatterGroupIds(org, req, res);
+	myData.getUserIdToChatterGroupIds(routes.getOrg(), req, res);
 });
 app.get('/IdToName', function(req,res){
-	myData.getIdToName(org, req, res);
+	myData.getIdToName(routes.getOrg(), req, res);
 });
 //return oauth object
 app.get('/oauth', function(req,res){
