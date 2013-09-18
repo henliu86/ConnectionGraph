@@ -61,7 +61,7 @@ angular.module("graphapp").directive("myjson",function(){
 						if (d3.event.defaultPrevented) return; // ignore drag
 						//otherwiseDoAwesomeThing();
 						console.log('clicked on ' + d.Id);
-						window.location.href = scope.oauthObj.instance_url + '/' + d.Id;
+						parent.window.location.href = scope.oauthObj.instance_url + '/' + d.Id;
 
 					});
 
