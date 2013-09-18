@@ -24,7 +24,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	//factory getting json string into scope
 	$scope.getSalesforceJSON = function(callback)	
 	{
-		console.log(callback);
+		//console.log(callback);
 		salesforceconnections.getOauthObject().then(function(res){
 			$scope.oauthObj = res.data;
 			numProcessed++;
@@ -65,7 +65,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 
 	//once all data have been loaded, directive calls this function to build graph
 	function buildMyGraph(callback){
-		console.log("build my graph");
+		//console.log("build my graph");
 		var buildGraph = new BuildingGraph($scope.myUserId,$scope.desiredUserId); //current user id, desire user id
 		buildGraph.initMe($scope.userIdToSubscriberIds,$scope.chatterGroupIdToSubscriberIds,$scope.userIdToChatterGroupIds,$scope.idToName);
 		buildGraph.build();

@@ -91,7 +91,7 @@ BuildingGraph.prototype = {
 		this.chatterGroupIdToSubscriberIds = mychatterGroupIdToSubscriberIds;
 		this.userIdToChatterGroupIds = myuserIdToChatterGroupIds;
 		this.idToName = myidToName;
-		console.log('initialized!');
+		//console.log('initialized!');
 	},
 
 	/****************** This will build the whole graph ******************/
@@ -108,23 +108,23 @@ BuildingGraph.prototype = {
 		if(iAmFollowing != null) //if I have users I am following
 		{
 			var allChatGroupIFollow = this.userIdToChatterGroupIds[this.rootNode.userId]; //List<Id>
-			console.log("Groups I am following:");
+			//console.log("Groups I am following:");
 			console.log(allChatGroupIFollow);
 			if(allChatGroupIFollow != null) //if I have chatter groups I am following
 			{
-				console.log('user/chattergroup I am following before concat:');
-				console.log(iAmFollowing);
-				console.log(allChatGroupIFollow);
+				//console.log('user/chattergroup I am following before concat:');
+				//console.log(iAmFollowing);
+				//console.log(allChatGroupIFollow);
 				iAmFollowing = iAmFollowing.concat(allChatGroupIFollow).unique(); //add all groups I am following
-				console.log('user/chattergroup I am following after:');
-				console.log(iAmFollowing);
+				//console.log('user/chattergroup I am following after:');
+				//console.log(iAmFollowing);
 			}
 		}
 		else //just add chatter groups
 			iAmFollowing = this.userIdToChatterGroupIds[this.rootNode.userId];
 
-		console.log('user/chattergroup I am following:');
-		console.log(iAmFollowing);
+		//console.log('user/chattergroup I am following:');
+		//console.log(iAmFollowing);
 
 		//creating connectionNodes for ME
 		var myFollowingNode = []; //List<ConnectionNode>
@@ -173,12 +173,12 @@ BuildingGraph.prototype = {
 	//returns the shortest paths (could have more than 1 shortest path) to or empty List
 	buildHelper : function(connNode) //List<List<ConnectionNode>> buildHelper(ConnectionNode connNode)
 	{
-		console.log('\n\n--Current Connection Node: ' + connNode.userId);
-		console.log(connNode);
+		//console.log('\n\n--Current Connection Node: ' + connNode.userId);
+		//console.log(connNode);
 		var pathsToDesire = []; //find the shortest path. If this is not null then there is a path //List<List<ConnectionNode>>
 		if(connNode.userId == this.desiredUserId) //you found him/her?!?
 		{
-			console.log('FOUND: '+connNode.userId);
+			//console.log('FOUND: '+connNode.userId);
 			connNode.numberOfHop = 0;
 			return [[]]; //return an empty list so at returned function can add the found user //List<List<ConnectionNode>>
 		}	
@@ -247,8 +247,8 @@ BuildingGraph.prototype = {
 							//See if the Node has numberOfHop set, if so then it already reached the desired person
 							if(alreadyTraverseNode.numberOfHop != null)
 							{
-								console.log('REACHED User 2nd TIME for '+meFollowing[i]);
-								console.log('follow persons hop is '+alreadyTraverseNode.numberOfHop);
+								//console.log('REACHED User 2nd TIME for '+meFollowing[i]);
+								//console.log('follow persons hop is '+alreadyTraverseNode.numberOfHop);
 								//If so, get the path from the that person
 								var paths = this.getPathToDesired(alreadyTraverseNode); //List<List<ConnectionNode>>
 								//then add the paths to pathsToDesire list
