@@ -11,8 +11,7 @@ var doneWithFunctionCall = false;//done with setting both userIdToChatterGroupId
 
 ////map all subscribers
 exports.getUserIdToSubscriberIds = function(org,req,res){
-	if(userIdToSubscriberIds == null)
-	{
+	
 		userIdToSubscriberIds={};
 		//console.log('oauth Obj:');
 		//console.log(oauthObj);
@@ -84,9 +83,7 @@ exports.getUserIdToSubscriberIds = function(org,req,res){
 			}
 		});
 		****************************************************************************************************/
-	}
-	else
-		res.send( JSON.stringify(userIdToSubscriberIds) );
+	
 };
 
 function parseSalesforceEntitySubscription(salesforceObj){
@@ -105,7 +102,8 @@ function parseSalesforceEntitySubscription(salesforceObj){
 
 
 exports.getChatterGroupIdToSubscriberIds = function(org,req,res){
-	
+	chatterGroupIdToSubscriberIds = null;
+	doneWithFunctionCall = false;
 	if(chatterGroupIdToSubscriberIds == null)
 	{
 		console.log('chatterGroupIdToSubscriberIds is null');
@@ -127,6 +125,8 @@ exports.getChatterGroupIdToSubscriberIds = function(org,req,res){
 };
 
 exports.getUserIdToChatterGroupIds = function(org,req,res){
+	userIdToChatterGroupIds = null;
+	doneWithFunctionCall = false;
 	if(userIdToChatterGroupIds == null)
 	{	
 		console.log('userIdToChatterGroupIds is null');
@@ -308,45 +308,6 @@ exports.getIdToName = function(org,req,res){
 			res.send(err);
 		}
 	});
-	
-
-
-
-
-
-	var idToName = {
-		"00530000008B7WJAA0":"Andrea Admin",
-		"00530000008B7WgAAK":"Chet Callaghan",
-		"00530000008B7WjAAK":"Ely East",
-		"00530000008B7WfAAK":"Cindy Central",
-		"0F9300000001jcVCAQ":"Southeast Sales Team",
-		"00530000008B7WxAAK":"Linda Support",
-		"00530000008B7WwAAK":"Jay Support",
-		"00530000008B7WVAA0":"Kasey Central",
-		"00530000008B7WmAAK":"Gordon SVP",
-		"00530000008B7XZAA0":"Brent Salazar",
-		"00530000008LL3BAAW":"Sameer Singhvi",
-		"0F9300000001jcQCAQ":"Competitive Experts",
-		"0F9300000001jcPCAQ":"Customer Collaboration",
-		"0F9300000001jcRCAQ":"DOT Green & Cirrus",
-		"00530000008B7WcAAK":"Vince West",
-		"00530000008B7WeAAK":"Valerie East",
-		"00530000008B7WZAA0":"Sue Market",
-		"00530000008B7WNAA0":"Joe Social",
-		"00530000008B7WvAAK":"Brenda Support",
-		"0F9300000001jcUCAQ":"Support Management Team",
-		"0F9300000001jcSCAQ":"Sales Strategy",
-		"00530000008B7WbAAK":"Quentin Engineer",
-		"00530000008B7WPAA0":"Jason Brennaman",
-		"00530000008B7WuAAK":"Tim Support*",
-		"00530000008B7WiAAK":"Vanessa Central",
-		"00530000008B7WaAAK":"Ricky East",
-		"00530000008B7WdAAK":"Wendy West",
-		"0F9300000001jcTCAQ":"Product Experts",
-		"00530000008L9njAAC":"Henry Liu",
-		"00530000008B7WTAA0":"Bill West",
-		"00530000008B7WRAA0":"Elliot Executive"
-		};
 };
 
 

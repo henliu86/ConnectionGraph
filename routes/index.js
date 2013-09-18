@@ -2,27 +2,10 @@
  * GET home page.
  */
 var org;
-var nforce = require('nforce');
-
-exports.getOrg = function()
-{
-	org = nforce.createConnection({
-		clientId: '3MVG99OxTyEMCQ3gG9qUh.ce54NOXg4vsqI4PZP8f965xeGUWTcuFiRHtuJWlowCQw993i51po9G4WECLNlSW',
-		clientSecret: '8428401456520732541',
-		redirectUri: 'https://damp-castle-2728.herokuapp.com/oauth/callback?', //'http://localhost:3000/oauth/callback?',
-		apiVersion: 'v28.0',  // optional, defaults to current salesforce API version
-		environment: 'production',  // optional, salesforce 'sandbox' or 'production', production default
-		mode: 'multi' // optional, 'single' or 'multi' user mode, multi default
-	});
-	return org;
-}
-
 exports.boot = function(myOrg){
 	org = myOrg;
 } 
 exports.index = function(req, res){
-	org.getAuthUri();
-
 	if(req.session.code)
 		res.render('index', { title: 'Graph APP' });
 	else
@@ -33,15 +16,6 @@ exports.index = function(req, res){
  * direct to salesforce oauth page
  */
 exports.oauth = function(req, res){
-	org = nforce.createConnection({
-		clientId: '3MVG99OxTyEMCQ3gG9qUh.ce54NOXg4vsqI4PZP8f965xeGUWTcuFiRHtuJWlowCQw993i51po9G4WECLNlSW',
-		clientSecret: '8428401456520732541',
-		redirectUri: 'https://damp-castle-2728.herokuapp.com/oauth/callback?', //'http://localhost:3000/oauth/callback?',
-		apiVersion: 'v28.0',  // optional, defaults to current salesforce API version
-		environment: 'production',  // optional, salesforce 'sandbox' or 'production', production default
-		mode: 'multi' // optional, 'single' or 'multi' user mode, multi default
-	});
-
 	//var myOauth = new Object();
 	//myOauth.code = req.query.code;
 	req.session.code = req.query.code;
