@@ -1,0 +1,58 @@
+div.bar {
+    display: inline-block;
+    width: 20px;
+    height: 75px;   /* We'll override this later */
+    background-color: teal;
+}
+#connectionGraphic
+{
+	width:100%;
+}
+.path
+{
+	position:relative;
+	float:left;
+}
+.profileImgDiv
+{
+	position:relative;
+	float:left;
+}
+.profileDetailDiv
+{
+	position:relative;
+	float:left;
+	padding: 0 10px;
+}
+.profileImg
+{
+	width:50px;
+	border-radius: 15px;
+}
+ul
+{
+	list-style: none;
+}
+.list-group-item
+{
+	position:relative;
+	float:left;
+	clear:both;
+	padding:3px;
+	margin: 5px;
+	//-webkit-transition:all 0.4s ease-in-out;
+}
+.badge
+{
+	background-color: rgba(226, 226, 226, 0.96);
+}
+.clear
+{
+	clear:both;
+}
+
+//bootstrap mods
+.well
+{
+	padding: 6px;
+}
