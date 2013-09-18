@@ -22,11 +22,11 @@ exports.boot = function(myOrg){
 	org = myOrg;
 } 
 exports.index = function(req, res){
-	/*
+	//org.getAuthUri();
+
 	if(req.session.code)
 		res.render('index', { title: 'Graph APP' });
 	else
-		*/
 		res.redirect('/');
 };
 
