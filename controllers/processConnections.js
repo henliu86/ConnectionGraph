@@ -8,6 +8,7 @@ var userIdToChatterGroupIds;
 var chatterGroupIdToSubscriberIds;
 var doneWithFunctionCall = false;//done with setting both userIdToChatterGroupIds and chatterGroupIdToSubscriberIds
 
+
 ////map all subscribers
 exports.getUserIdToSubscriberIds = function(org,req,res){
 	if(userIdToSubscriberIds == null)

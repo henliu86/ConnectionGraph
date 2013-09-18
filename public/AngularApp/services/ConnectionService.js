@@ -24,6 +24,12 @@ angular.module("graphapp").factory('salesforceconnections',function($http){
 				url: '/IdToName',
 				method: 'GET'
 			})
+		},
+		getOauthObject: function(){
+			return $http({
+				url: '/oauth',
+				method: 'GET'
+			});
 		}
 	}
 });

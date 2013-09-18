@@ -72,6 +72,10 @@ app.get('/UserIdToChatterGroupIds', function(req,res){
 app.get('/IdToName', function(req,res){
 	myData.getIdToName(org, req, res);
 });
+//return oauth object
+app.get('/oauth', function(req,res){
+	res.send( JSON.stringify(req.session.oauth) );
+});
 //////////////////////////
 
 

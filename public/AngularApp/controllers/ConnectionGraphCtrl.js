@@ -10,10 +10,11 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	$scope.finalShortestPaths = [];
 	$scope.globalUserMap; //map of all users
 	$scope.d3object; //d3 node/link object. use for d3
+	$scope.oauthObj;
 	
 	//check if all processes have been completed
 	function allDone(callback){
-		if(numProcessed == 4)
+		if(numProcessed == 5)
 		{
 			buildMyGraph(callback);
 		}
@@ -23,6 +24,11 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	$scope.getSalesforceJSON = function(callback)	
 	{
 		console.log(callback);
+		salesforceconnects.getOauthObject().then(function(res){
+			$scope.oauthObj = res.data;
+			numProcessed++;
+			allDone(callback);
+		});
 		salesforceconnections.getUserIdToSubscriberIds().then(function(res){
 			$scope.userIdToSubscriberIds = res.data;
 			numProcessed++;
