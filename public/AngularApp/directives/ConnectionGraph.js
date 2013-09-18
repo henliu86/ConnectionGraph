@@ -6,7 +6,7 @@ angular.module("graphapp").directive("myjson",function(){
 			var d3func = function(scope)
 			{
 				//run d3
-				var width = 550,
+				var width = 450,
 				height = 600
 
 				var svg = d3.select("#myD3Div").append("svg")
@@ -46,7 +46,8 @@ angular.module("graphapp").directive("myjson",function(){
 						.attr("x", -20)
 						.attr("y", -20)
 						.attr("width", 36)
-						.attr("height", 56);
+						.attr("height", 56)
+						.attr("class","nodeImg");
 
 					node.append("text")
 						.attr("dx", 22)
