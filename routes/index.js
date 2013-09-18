@@ -2,6 +2,8 @@
  * GET home page.
  */
 var org;
+var nforce = require('nforce');
+
 exports.getOrg = function()
 {
 	var myorg = nforce.createConnection({

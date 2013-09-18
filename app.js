@@ -8,7 +8,7 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
-var nforce = require('nforce');
+//var nforce = require('nforce');
 var app = express();
 
 app.use(express.cookieParser());
