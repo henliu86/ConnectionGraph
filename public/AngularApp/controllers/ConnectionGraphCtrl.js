@@ -17,6 +17,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 		if(numProcessed == 5)
 		{
 			buildMyGraph(callback);
+			numProcessed = 0; //reset so data will update on refresh
 		}
 	}
 
