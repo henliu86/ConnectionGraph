@@ -64,13 +64,13 @@
 		<div id="connectionGraphic" connectionGraphic>
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title">
+					<h5 class="panel-title well">
 						I ({{idToName[ "userMap" ][ myUserId ].Name}}) have {{finalShortestPaths.length}} paths to {{idToName[ "userMap" ][ desiredUserId ].Name}}
-					</h3>
+					</h5>
 				</div>
 				<div class="panel-body">
-					<div class="path"  ng-repeat="path in finalShortestPaths">
-						<h3>Path</h3>
+					<div class="path well"  ng-repeat="path in finalShortestPaths">
+						<!--<h3>Path</h3>-->
 						<ul class="list-group">
 							<li class="list-group-item animate-repeat" ng-repeat="user in path | filter:q">
 								<!-- show user -->
