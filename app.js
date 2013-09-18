@@ -51,13 +51,13 @@ app.set('alreadyOAuth',false);
 //routes.boot(org); //pass org in here to route index.js
 //org = routes.getOrg();
 app.get('/',function(req, res){
-	res.redirect(org.getAuthUri());
+	res.redirect(routes.getOrg().getAuthUri());
 });
 app.get('/index',routes.index);
 app.get('/oauth/callback', routes.oauth);
 app.get('/users', user.list);
 app.get('/auth/salesforce',function(req, res){
-	res.redirect(org.getAuthUri());
+	res.redirect(routes.getOrg().getAuthUri());
 });
 
 
