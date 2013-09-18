@@ -24,7 +24,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	$scope.getSalesforceJSON = function(callback)	
 	{
 		console.log(callback);
-		salesforceconnects.getOauthObject().then(function(res){
+		salesforceconnections.getOauthObject().then(function(res){
 			$scope.oauthObj = res.data;
 			numProcessed++;
 			allDone(callback);
