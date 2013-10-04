@@ -34,7 +34,7 @@ angular.module("graphapp").directive("myjson",function(){
 						.data(json.links)
 						.enter().append("line")
 						.attr("class", "link")
-						.style("fill", function(d) { return d.color; })
+						.style("stroke", function(d) { return d.color; })
 						.style("stroke-width", function(d) { return d.width; });
 
 					var node = svg.selectAll(".node")
