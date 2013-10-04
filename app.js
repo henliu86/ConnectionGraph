@@ -62,7 +62,7 @@ app.get('/sourceUserId', function(req,res){
 app.get('/targetUserId', function(req,res){
 	res.send(info.targetUserId);
 });
-app.get('/index/:sourceUserId/:targetUserId',routes.index);
+app.get('/index',routes.index);
 app.get('/oauth/callback', routes.oauth);
 /*
 app.get('/oauth/callback', function(req, res){
