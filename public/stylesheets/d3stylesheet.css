@@ -24,6 +24,11 @@ svg .pumpkin
 .node:not(:hover) .nodetext {
 	display: none;
 }
+.mode:hover
+{
+	cursor: pointer;
+	box-shadow:0 0 8px 4px rgba(0,0,0,0.3);
+}
 .nodeImg
 {
 	/*border-radius: 20px; this doesnt work*/ 

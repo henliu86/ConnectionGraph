@@ -33,8 +33,10 @@ function BuildingGraph(currentUserId, desireUsrId)
 	*			],
 	*		"links":[
 	*			{
-		*			"source":0,
-		*			"target":1
+	*				"source":0,
+	*				"target":1,
+	*				"color":"rgb(31, 137, 202)",
+	*				"width": "1"
 	*			},
 	*			{...}
 	*			]
@@ -109,7 +111,7 @@ BuildingGraph.prototype = {
 		{
 			var allChatGroupIFollow = this.userIdToChatterGroupIds[this.rootNode.userId]; //List<Id>
 			//console.log("Groups I am following:");
-			console.log(allChatGroupIFollow);
+			//console.log(allChatGroupIFollow);
 			if(allChatGroupIFollow != null) //if I have chatter groups I am following
 			{
 				//console.log('user/chattergroup I am following before concat:');
@@ -137,7 +139,7 @@ BuildingGraph.prototype = {
 			var newNode = this.idToName[ 'userMap' ][ c.userId ];
 			this.addD3Node(c.userId,newNode.Name, newNode.FullPhotoUrl);
 			//add d3 link
-			this.addD3Links(this.rootNode.d3index,c.d3index);
+			this.addD3Links(this.rootNode.d3index,c.d3index, false); //source,target,isFinalPath
 
 			//not sure if I should comment this line out or not. gotta figure this out later, for now it works!
 			this.globalUsers[iAmFollowing[i]] = c; //add user you follow to globalUsers Mapping. This is to check if node for current user is created already
@@ -153,6 +155,7 @@ BuildingGraph.prototype = {
 		console.log("finalShortest: ");		
 		console.log(this.finalShortestPaths);
 		this.addYourself();
+		this.addD3LinksOfShortestPath();
 		//console.log(this.globalUsers);
 	},
 
@@ -230,7 +233,7 @@ BuildingGraph.prototype = {
 							newNode = this.idToName[ 'chatterGroupMap' ][ c.userId ];
 						this.addD3Node(c.userId,newNode.Name, newNode.FullPhotoUrl);
 						//add d3 link
-						this.addD3Links(connNode.d3index,c.d3index);
+						this.addD3Links(connNode.d3index,c.d3index,false);
 
 						this.globalUsers[meFollowing[i]] = c; //add the user person is following to globalUsers Mapping.
 						connNode.following.push(c); //only add to following list IF USER IS NOT ALREADY ADDED! This is because you don't want to traverse to the same node again.
@@ -262,7 +265,7 @@ BuildingGraph.prototype = {
 							//else //that means we found a loop so don't do ANYTHING!!
 						}
 						//add d3 link even if person is already traverse
-						this.addD3Links(connNode.d3index,alreadyTraverseNode.d3index);
+						this.addD3Links(connNode.d3index,alreadyTraverseNode.d3index,false);
 					}
 				}
 				//console.log('Following nodes: ');
@@ -388,12 +391,30 @@ BuildingGraph.prototype = {
 		this.d3object["nodes"].push(newNode);
 	},
 	//add d3 links
-	addD3Links : function(linkSource,linkTarget)
+	addD3Links : function(linkSource,linkTarget,isFinalPath)
 	{
 		var newLink = {};
 		newLink.source = linkSource;
 		newLink.target = linkTarget;
+		if(isFinalPath) //for different link color
+		{
+			newLink.color = "rgba(31, 137, 202,0.5)";
+			newLink.width = "1";
+		}
+		else
+		{
+			newLink.color = "rgba(255, 187, 0,0.9)";
+			newLink.width = "2";
+		}
 		this.d3object["links"].push(newLink);
+	}
+	addD3LinksOfShortestPath : function(){
+		if(finalShortestPaths.length > 0)
+			for(var i=0;i<finalShortestPaths.length;i++)
+				for(var j=1;j<finalShortestPaths[i].length;j++)
+				{
+					addD3Links(finalShortestPaths[i][j-1].d3index,finalShortestPaths[i][j].d3index,true);
+				}
 	}
 
 }

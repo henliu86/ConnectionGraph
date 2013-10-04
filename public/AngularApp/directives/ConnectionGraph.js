@@ -25,6 +25,7 @@ angular.module("graphapp").directive("myjson",function(){
     				.on("dragstart", dragstart);
 				*/
 				(function(json) { 
+					console.log(json);
 					force.nodes(json.nodes)
 						.links(json.links)
 						.start();
@@ -32,7 +33,9 @@ angular.module("graphapp").directive("myjson",function(){
 					var link = svg.selectAll(".link")
 						.data(json.links)
 						.enter().append("line")
-						.attr("class", "link");
+						.attr("class", "link")
+						.style("fill", function(d) { return d.color; })
+						.style("stroke-width", function(d) { return d.width; });
 
 					var node = svg.selectAll(".node")
 						.data(json.nodes)

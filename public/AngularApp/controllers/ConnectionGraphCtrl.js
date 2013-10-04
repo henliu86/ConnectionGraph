@@ -1,5 +1,4 @@
 //salesforceconnections is the factory
-
 angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q, salesforceconnections){
 	$scope.desiredUserId = '00530000008B7WiAAK';
 	$scope.myUserId = '00530000008L9njAAC';

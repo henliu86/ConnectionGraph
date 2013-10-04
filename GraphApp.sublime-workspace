@@ -7,6 +7,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "public/AngularApp/views/ConnectionGraph.html",
+			"settings":
+			{
+				"buffer_size": 3941,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/AngularApp/directives/ConnectionGraph.js",
+			"settings":
+			{
+				"buffer_size": 2535,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/AngularApp/controllers/ConnectionGraphCtrl.js",
+			"settings":
+			{
+				"buffer_size": 2990,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -19,7 +43,10 @@
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 0.0,
+		"history":
+		[
+		]
 	},
 	"distraction_free":
 	{
@@ -32,18 +59,34 @@
 	},
 	"file_history":
 	[
-		"/Users/henry.liu/Documents/workspace/Ralph Eddy Org/src/classes/GlobalAttendeeAddController.cls",
-		"/Users/henry.liu/Documents/workspace/Ralph Eddy Org/src/classes/checkInController.cls",
-		"/Users/henry.liu/Documents/workspace/Ralph Eddy Org/src/pages/CheckIn.page",
-		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/app.js",
-		"/Users/henry.liu/Documents/workspace/GraphApp/views/index.ejs",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/stylesheets/d3stylesheet.css",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/controllers/ConnectionGraphCtrl.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/objects/BuildGraph.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/stylesheets/connectiongraphstyle.css",
 		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/directives/ConnectionGraph.js",
-		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/services/ConnectionService.js",
-		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/views/ConnectionGraph.html",
 		"/Users/henry.liu/Documents/workspace/GraphApp/controllers/processConnections.js",
 		"/Users/henry.liu/Documents/workspace/GraphApp/routes/index.js",
 		"/Users/henry.liu/Documents/workspace/GraphApp/app.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/stylesheets/animations.css",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/services/ConnectionService.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/views/index.ejs",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/views/ConnectionGraph.html",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/app.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/javascripts/d3graph.js",
 		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/objects/ConnectionNode.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/json/graphTest.json",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/json/graph.json",
+		"/Users/henry.liu/Documents/workspace/collapsibleForce/globalUsersMap.json",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/javascripts/d3Code.js",
+		"/Users/henry.liu/Documents/workspace/collapsibleForce/forceDirectedGraph.html",
+		"/Users/henry.liu/Documents/workspace/collapsibleForce/index.html",
+		"/Users/henry.liu/Documents/workspace/collapsibleForce/d3.v3.js",
+		"/Users/henry.liu/Documents/workspace/collapsibleForce/miserables.json",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/javascripts/d3.v3.js",
+		"/Users/henry.liu/Documents/workspace/GraphApp/public/stylesheets/d3styling.css",
+		"/Users/henry.liu/Documents/workspace/Ralph Eddy Org/src/classes/GlobalAttendeeAddController.cls",
+		"/Users/henry.liu/Documents/workspace/Ralph Eddy Org/src/classes/checkInController.cls",
+		"/Users/henry.liu/Documents/workspace/Ralph Eddy Org/src/pages/CheckIn.page",
 		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/controllers/ConnectionNode.js",
 		"/Users/henry.liu/Documents/workspace/GraphApp/public/AngularApp/controllers/BuildGraph.js",
 		"/Users/henry.liu/Documents/workspace/GraphApp/routes/oauth.js",
@@ -88,6 +131,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"addD3Node",
+			"addD3Links",
+			"d3indexCount",
+			":{",
+			"00530000008B7WdAAK",
+			"flare",
+			">",
 			"4s",
 			"attendeeDiv",
 			"concat",
@@ -158,8 +208,93 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "public/AngularApp/views/ConnectionGraph.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3941,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								163,
+								163
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/AngularApp/directives/ConnectionGraph.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								522,
+								526
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 10.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/AngularApp/controllers/ConnectionGraphCtrl.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2990,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -198,6 +333,7 @@
 	{
 		"height": 127.0
 	},
+	"project": "GraphApp.sublime-project",
 	"replace":
 	{
 		"height": 64.0
@@ -219,10 +355,24 @@
 		],
 		"width": 0.0
 	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 136.0,
-	"status_bar_visible": true
+	"side_bar_width": 184.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }
