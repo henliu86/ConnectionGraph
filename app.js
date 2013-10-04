@@ -76,10 +76,8 @@ app.get('/oauth/callback', function(req, res){
 			console.log('Error: ' + err.message);
 		}
     });
+});
 
-	
-};
- );
 app.get('/users', user.list);
 app.get('/auth/salesforce',function(req, res){
 	res.redirect(org.getAuthUri());
