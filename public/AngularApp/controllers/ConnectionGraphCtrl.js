@@ -1,7 +1,11 @@
 //salesforceconnections is the factory
-angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q, salesforceconnections){
-	$scope.desiredUserId = '00530000008B7WiAAK';
-	$scope.myUserId = '00530000008L9njAAC';
+angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q, salesforceconnections, $routeParams){
+	$scope.desiredUserId = $routeParams.sourceUserId;//'00530000008B7WiAAK';
+	$scope.myUserId = $routeParams.targetUserId; //'00530000008L9njAAC';
+	console.log($routeParams);
+	console.log($routeParams.sourceUserId);
+	console.log($routeParams.targetUserId);
+	
 	$scope.includeChatterGroups = false;
 	var numProcessed = 0;
 	var buildDefer = $q.defer();

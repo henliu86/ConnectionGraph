@@ -30,7 +30,16 @@ angular.module("graphapp").factory('salesforceconnections',function($http){
 				url: '/oauth',
 				method: 'GET'
 			});
+		},
+		/*
+		getCurrentUsers : function(){ //go to node server and get users passed from parameters
+			return $(http({
+				url: '/user/:sourceUser/:targetUser',
+				method: 'GET'
+			});
 		}
+		*/
+
 	}
 });
 
