@@ -29,7 +29,7 @@ exports.oauth = function(req, res){
 			console.log('oauth: ')
 			console.log(oauth);        
 			req.session.oauth = oauth; //assign session.oath to the result of oauth
-			res.redirect('/index/');
+			res.redirect('/index/lklk/iojioj');
 		} else {
 			console.log('Error: ' + err.message);
 		}
