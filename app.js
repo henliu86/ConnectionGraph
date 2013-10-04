@@ -56,7 +56,15 @@ app.get('/:sourceUserId/:targetUserId',function(req, res){
 	info.targetUserId = req.params.targetUserId;
 	res.redirect(org.getAuthUri());
 });
+app.get('/sourceUserId', function(req,res){
+	res.send(info.sourceUserId);
+});
+app.get('/targetUserId', function(req,res){
+	res.send(info.targetUserId);
+});
 app.get('/index/:sourceUserId/:targetUserId',routes.index);
+app.get('/oauth/callback', routes.oauth);
+/*
 app.get('/oauth/callback', function(req, res){
 	//var myOauth = new Object();
 	//myOauth.code = req.query.code;
@@ -77,6 +85,7 @@ app.get('/oauth/callback', function(req, res){
 		}
     });
 });
+*/
 
 app.get('/users', user.list);
 app.get('/auth/salesforce',function(req, res){

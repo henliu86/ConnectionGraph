@@ -14,7 +14,7 @@ exports.index = function(req, res){
 	}
 	else
 	{
-		console.log("GO Back");
+		console.log("GO GET AUTH");
 		res.redirect('/');
 	}
 };

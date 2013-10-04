@@ -31,14 +31,20 @@ angular.module("graphapp").factory('salesforceconnections',function($http){
 				method: 'GET'
 			});
 		},
-		/*
-		getCurrentUsers : function(){ //go to node server and get users passed from parameters
+		
+		getSourceUsers : function(){ //go to node server and get users passed from parameters
 			return $(http({
-				url: '/user/:sourceUser/:targetUser',
+				url: '/sourceUserId',
+				method: 'GET'
+			});
+		},
+		getTargetUsers : function(){ //go to node server and get users passed from parameters
+			return $(http({
+				url: '/targetUserId',
 				method: 'GET'
 			});
 		}
-		*/
+		
 
 	}
 });
