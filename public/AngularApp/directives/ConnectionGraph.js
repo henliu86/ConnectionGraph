@@ -42,16 +42,22 @@ angular.module("graphapp").directive("myjson",function(){
 						.enter().append("circle")
 						.attr("class", "node")
 						//.attr("linkStrength",function(d){ return d.linkStrength; })
+						.attr("xlink:href", function(d){ return d.ImgUrl })
+						.attr("x", "-20px")
+						.attr("y", "-20")
+						.attr("width", "30px")
+						.attr("height", "30px")
+						.attr("stroke","#000")
 						.call(force.drag);
 
-					node.append("image")
+					/*node.append("image")
 						.attr("xlink:href", function(d){ return d.ImgUrl })
 						.attr("x", -20)
 						.attr("y", -20)
 						.attr("width", 36)
 						.attr("height", 56)
 						.attr("class","nodeImg");
-
+					*/
 					node.append("text")
 						.attr("dx", 22)
 						.attr("dy", ".35em")
