@@ -6,10 +6,17 @@ exports.boot = function(myOrg){
 	org = myOrg;
 } 
 exports.index = function(req, res){
+	
 	if(req.session.code)
+	{
+		console.log("GO HOME");
 		res.render('index', { title: 'Graph APP' });
+	}
 	else
+	{
+		console.log("GO Back");
 		res.redirect('/');
+	}
 };
 
 /*
