@@ -39,7 +39,7 @@ angular.module("graphapp").directive("myjson",function(){
 
 					var node = svg.selectAll(".node")
 						.data(json.nodes)
-						.enter().append("g")
+						.enter().append("circle")
 						.attr("class", "node")
 						//.attr("linkStrength",function(d){ return d.linkStrength; })
 						.call(force.drag);
