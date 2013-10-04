@@ -409,11 +409,11 @@ BuildingGraph.prototype = {
 		this.d3object["links"].push(newLink);
 	}
 	addD3LinksOfShortestPath : function(){
-		if(finalShortestPaths.length > 0)
-			for(var i=0;i<finalShortestPaths.length;i++)
-				for(var j=1;j<finalShortestPaths[i].length;j++)
+		if(this.finalShortestPaths.length > 0)
+			for(var i=0;i<this.finalShortestPaths.length;i++)
+				for(var j=1;j<this.finalShortestPaths[i].length;j++)
 				{
-					addD3Links(finalShortestPaths[i][j-1].d3index,finalShortestPaths[i][j].d3index,true);
+					this.addD3Links(this.finalShortestPaths[i][j-1].d3index,this.finalShortestPaths[i][j].d3index,true);
 				}
 	}
 
