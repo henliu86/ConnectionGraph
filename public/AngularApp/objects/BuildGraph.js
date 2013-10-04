@@ -396,7 +396,7 @@ BuildingGraph.prototype = {
 		var newLink = {};
 		newLink.source = linkSource;
 		newLink.target = linkTarget;
-		if(isFinalPath) //for different link color
+		if(!isFinalPath) //for different link color
 		{
 			newLink.color = "rgba(31, 137, 202,0.5)";
 			newLink.width = "0.5";
