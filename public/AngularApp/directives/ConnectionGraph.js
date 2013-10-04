@@ -39,25 +39,19 @@ angular.module("graphapp").directive("myjson",function(){
 
 					var node = svg.selectAll(".node")
 						.data(json.nodes)
-						.enter().append("circle")
+						.enter().append("g")
 						.attr("class", "node")
 						//.attr("linkStrength",function(d){ return d.linkStrength; })
-						.attr("xlink:href", function(d){ return d.ImgUrl })
-						.attr("x", "-20px")
-						.attr("y", "-20")
-						.attr("width", "30px")
-						.attr("height", "30px")
-						.attr("stroke","#000")
 						.call(force.drag);
 
-					/*node.append("image")
+					node.append("svg:image")
+						.attr("class","circle nodeImg")
 						.attr("xlink:href", function(d){ return d.ImgUrl })
 						.attr("x", -20)
 						.attr("y", -20)
 						.attr("width", 36)
-						.attr("height", 56)
-						.attr("class","nodeImg");
-					*/
+						.attr("height", 56);
+
 					node.append("text")
 						.attr("dx", 22)
 						.attr("dy", ".35em")
