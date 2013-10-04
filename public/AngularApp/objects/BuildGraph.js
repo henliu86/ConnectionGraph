@@ -407,8 +407,9 @@ BuildingGraph.prototype = {
 			newLink.width = "2";
 		}
 		this.d3object["links"].push(newLink);
-	}
-	addD3LinksOfShortestPath : function(){
+	},
+	addD3LinksOfShortestPath : function()
+	{
 		if(this.finalShortestPaths.length > 0)
 			for(var i=0;i<this.finalShortestPaths.length;i++)
 				for(var j=1;j<this.finalShortestPaths[i].length;j++)
