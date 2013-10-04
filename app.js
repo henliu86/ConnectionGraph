@@ -50,7 +50,7 @@ routes.boot(org); //pass org in here to route index.js
 app.get('/',function(req, res){
 	res.redirect(org.getAuthUri());
 });
-app.get('/index',routes.index);
+app.get('/index/:id/:poop',routes.index);
 app.get('/oauth/callback', routes.oauth);
 app.get('/users', user.list);
 app.get('/auth/salesforce',function(req, res){
