@@ -48,12 +48,14 @@ app.set('alreadyOAuth',false);
 //routes
 routes.boot(org); //pass org in here to route index.js
 app.get('/',function(req, res){
+	console.log("IN /");
 	res.redirect(org.getAuthUri());
 });
 var info = {sourceUserId: null,targetUserId: null};
 app.get('/:sourceUserId/:targetUserId',function(req, res){
 	info.sourceUserId = req.params.sourceUserId;
 	info.targetUserId = req.params.targetUserId;
+	console.log("GOT SOURCE AND TARGET!");
 	res.redirect(org.getAuthUri());
 });
 app.get('/sourceUserId', function(req,res){
