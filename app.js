@@ -55,7 +55,7 @@ var info = {sourceUserId: null,targetUserId: null};
 app.get('/:sourceUserId/:targetUserId',function(req, res){
 	info.sourceUserId = req.params.sourceUserId;
 	info.targetUserId = req.params.targetUserId;
-	console.log("GOT SOURCE AND TARGET!");
+	console.log("GOT SOURCE AND TARGET! source: "+info.sourceUserId + " target: "+info.targetUserId);
 	res.redirect(org.getAuthUri());
 });
 app.get('/sourceUserId', function(req,res){
