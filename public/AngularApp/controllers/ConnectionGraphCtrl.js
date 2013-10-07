@@ -1,18 +1,18 @@
 //salesforceconnections is the factory
 angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q, salesforceconnections, $routeParams){
 	//http://damp-castle-2728.herokuapp.com/00530000008B7WiAAK/00530000008L9njAAC
-
+/*	
 	$scope.desiredUserId = $routeParams.sourceUserId;//'00530000008B7WiAAK';
 	$scope.myUserId = $routeParams.targetUserId; //'00530000008L9njAAC';
 	console.log($routeParams);
 	console.log($routeParams.sourceUserId);
 	console.log($routeParams.targetUserId);
-/*	
+*/
 	console.log("HERE WE GO!");
 	$scope.desiredUserId = salesforceconnections.getSourceUsers();//'00530000008B7WiAAK';
 	$scope.myUserId = salesforceconnections.getTargetUsers();
 	console.log('target: '+ $scope.desiredUserId + ' ,source: '+ $scope.myUserId);
-*/
+
 	$scope.includeChatterGroups = false;
 	var numProcessed = 0;
 	var buildDefer = $q.defer();

@@ -60,8 +60,8 @@ app.get('/targetUserId', function(req,res){
 	res.send(info.targetUserId);
 });
 app.get('/index',routes.index);
-/*app.get('/oauth/callback', routes.oauth);*/
-
+app.get('/oauth/callback', routes.oauth);
+/*
 app.get('/oauth/callback', function(req, res){
 	//var myOauth = new Object();
 	//myOauth.code = req.query.code;
@@ -82,8 +82,7 @@ app.get('/oauth/callback', function(req, res){
 		}
     });
 });
-
-
+*/
 
 
 app.get('/users', user.list);
