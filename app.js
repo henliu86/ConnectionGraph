@@ -52,12 +52,7 @@ app.get('/',function(req, res){
 	res.redirect(org.getAuthUri());
 });
 var info = {sourceUserId: null,targetUserId: null};
-app.get('/:sourceUserId/:targetUserId',function(req, res){
-	info.sourceUserId = req.params.sourceUserId;
-	info.targetUserId = req.params.targetUserId;
-	console.log("GOT SOURCE AND TARGET! source: "+info.sourceUserId + " target: "+info.targetUserId);
-	res.redirect(org.getAuthUri());
-});
+
 app.get('/sourceUserId', function(req,res){
 	res.send(info.sourceUserId);
 });
@@ -66,6 +61,13 @@ app.get('/targetUserId', function(req,res){
 });
 app.get('/index',routes.index);
 app.get('/oauth/callback', routes.oauth);
+
+app.get('/:sourceUserId/:targetUserId',function(req, res){
+	info.sourceUserId = req.params.sourceUserId;
+	info.targetUserId = req.params.targetUserId;
+	console.log("GOT SOURCE AND TARGET! source: "+info.sourceUserId + " target: "+info.targetUserId);
+	res.redirect(org.getAuthUri());
+});
 /*
 app.get('/oauth/callback', function(req, res){
 	//var myOauth = new Object();
