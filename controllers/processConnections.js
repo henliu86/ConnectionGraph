@@ -8,6 +8,13 @@ var userIdToChatterGroupIds;
 var chatterGroupIdToSubscriberIds;
 var doneWithFunctionCall = false;//done with setting both userIdToChatterGroupIds and chatterGroupIdToSubscriberIds
 
+var sourceAndTargetUserId = {
+	'sourceTargetId': null,
+	'targetUserId': null
+};
+export.sourceAndTargetUserId = function(){
+	return sourceAndTargetUserId;
+}
 
 ////map all subscribers
 exports.getUserIdToSubscriberIds = function(org,req,res){

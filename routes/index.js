@@ -15,7 +15,7 @@ exports.index = function(req, res){
 	else
 	{
 		console.log("GO GET AUTH");
-		res.redirect('/?sourceUserId='+req.params.sourceUserId+'&targetUserId='+req.params.targetUserId);
+		res.redirect('/auth/salesforce');
 	}
 };
 

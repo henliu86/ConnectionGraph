@@ -47,18 +47,23 @@ app.set('alreadyOAuth',false);
 
 //routes
 routes.boot(org); //pass org in here to route index.js
+
 app.get('/',function(req, res){
-	console.log("In /!!! sourceUserId: "+req.params.sourceUserId + " targetUserId: "+req.params.targetUserId);
-	res.redirect(org.getAuthUri());
+	res.redirect('/index');
+});
+app.get('/index',routes.index);
+app.get('/index/:sourceUserId/:targetUserId',function(req, res){
+	myData.sourceAndTargetUserId.sourceUserId = req.params.sourceUserId;
+	myData.sourceAndTargetUserId.targetUserId = req.params.targetUserId;
+	res.redirect('/index');
 });
 
 app.get('/sourceUserId', function(req,res){
-	res.send(req.params.sourceUserId);
+	res.send(myData.sourceAndTargetUserId.sourceUserId);
 });
 app.get('/targetUserId', function(req,res){
-	res.send(req.params.targetUserId);
+	res.send(myData.sourceAndTargetUserId.targetUserId);
 });
-app.get('/index',routes.index);
 app.get('/oauth/callback', routes.oauth);
 
 app.get('/users', user.list);
