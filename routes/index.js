@@ -26,6 +26,7 @@ exports.oauth = function(req, res){
 	//var myOauth = new Object();
 	//myOauth.code = req.query.code;
 	req.session.code = req.query.code;
+	console.log(req);
 	console.log("access code: " + req.session.code);
 	//res.send('go back to index.ejs');
 
