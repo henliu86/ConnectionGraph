@@ -4,7 +4,7 @@ var debugApp = angular.module("debug",[]);
 
 graphApp.config(function($routeProvider){
 	$routeProvider
-	.when('/:sourceUserId/:targetUserId',{
+	.when('/index',{
 		templateUrl: "/AngularApp/views/ConnectionGraph.html",
 		controller: "ConnectionGraphCtrl"
 	})

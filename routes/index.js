@@ -9,7 +9,7 @@ exports.index = function(req, res){
 	if(req.session.code)
 	{
 		console.log("GO HOME");
-		res.render('index', { title: 'Graph APP' });
+		res.render('index.ejs', { title: 'Graph APP' });
 	}
 	else
 	{
