@@ -33,22 +33,27 @@ angular.module("graphapp").factory('salesforceconnections',function($http){
 		},
 		
 		getSourceUsers : function(){ //go to node server and get users passed from parameters
-			var whattoreturn = $http({
-									url: '/sourceUserId',
-									method: 'GET'
-								});
-			console.log(whattoreturn)
-
-			return whattoreturn;
+			$http({
+				url: '/sourceUserId',
+				method: 'GET'
+			}).success(function(data,status,headers,config){
+				return data;
+			}).error(function(data,status,headers,config){
+				console.log('ERROR: at get sourceUserId');
+				return null;
+			});
 		},
 		getTargetUsers : function(){ //go to node server and get users passed from parameters
-			return $http({
+			$http({
 				url: '/targetUserId',
 				method: 'GET'
+			}).success(function(data,status,headers,config){
+				return data;
+			}).error(function(data,status,headers,config){
+				console.log('ERROR: at get targetUserId');
+				return null;
 			});
 		}
-		
-
 	}
 });
 
