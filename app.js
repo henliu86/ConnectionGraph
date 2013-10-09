@@ -59,6 +59,8 @@ app.get('/index/:sourceUserId/:targetUserId',function(req, res){
 });
 
 app.get('/sourceUserId', function(req,res){
+	console.log('Node get source User Id:');
+	console.log(myData.getSourceAndTargetUserId().sourceUserId);
 	res.send(myData.getSourceAndTargetUserId().sourceUserId);
 });
 app.get('/targetUserId', function(req,res){
