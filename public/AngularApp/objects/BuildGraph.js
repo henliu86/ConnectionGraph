@@ -94,6 +94,7 @@ BuildingGraph.prototype = {
 		this.userIdToChatterGroupIds = myuserIdToChatterGroupIds;
 		this.idToName = myidToName;
 		//console.log('initialized!');
+		this.build();
 	},
 
 	/****************** This will build the whole graph ******************/

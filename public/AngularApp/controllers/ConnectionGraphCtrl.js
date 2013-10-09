@@ -92,7 +92,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 		console.log($scope.myUserId + ' to '+$scope.desiredUserId);
 		var buildGraph = new BuildingGraph($scope.myUserId,$scope.desiredUserId); //current user id, desire user id
 		buildGraph.initMe($scope.userIdToSubscriberIds,$scope.chatterGroupIdToSubscriberIds,$scope.userIdToChatterGroupIds,$scope.idToName);
-		buildGraph.build();
+		//buildGraph.build();
 		$scope.myNode = buildGraph.rootNode;
 		$scope.globalUserMap = buildGraph.globalUsers;
 		$scope.d3object = buildGraph.d3object;
