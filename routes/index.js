@@ -6,7 +6,6 @@ exports.boot = function(myOrg){
 	org = myOrg;
 } 
 exports.index = function(req, res){
-	console.log("in /index!! source: "+req.params.sourceUserId + " target: "+req.params.targetUserId);
 	if(req.session.code)
 	{
 		console.log("GO HOME");
@@ -36,8 +35,7 @@ exports.oauth = function(req, res){
 			console.log('oauth: ')
 			console.log(oauth);        
 			req.session.oauth = oauth; //assign session.oath to the result of oauth
-			console.log('redirect To: ' + '/index?sourceUserId='+req.params.sourceUserId+'&targetUserId='+req.params.targetUserId);
-			res.redirect('/index?sourceUserId='+req.params.sourceUserId+'&targetUserId='+req.params.targetUserId);
+			res.redirect('/index');
 		} else {
 			console.log('Error: ' + err.message);
 		}

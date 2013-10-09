@@ -53,6 +53,7 @@ app.get('/',function(req, res){
 });
 app.get('/index',routes.index);
 app.get('/index/:sourceUserId/:targetUserId',function(req, res){
+	console.log("in /index with params!! source: "+req.params.sourceUserId + " target: "+req.params.targetUserId);
 	myData.setSourceAndTargetUserId(req.params.sourceUserId,req.params.targetUserId);
 	res.redirect('/index');
 });
