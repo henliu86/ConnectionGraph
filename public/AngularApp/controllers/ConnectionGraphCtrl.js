@@ -18,6 +18,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	$scope.globalUserMap; //map of all users
 	$scope.d3object; //d3 node/link object. use for d3
 	$scope.oauthObj;
+	$scope.doneInit = false; //is the function done initializing, getting salesforce data
 	
 	//check if all processes have been completed
 	function allDone(callback){
@@ -34,15 +35,15 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	{
 		salesforceconnections.getSourceUsers().then(function(res){
 			$scope.myUserId = res.data;
-			console.log('source: ');
-			console.log( $scope.myUserId);
+			//console.log('source: ');
+			//console.log( $scope.myUserId);
 			numProcessed++;
 			allDone(callback);
 		});
 		salesforceconnections.getTargetUsers().then(function(res){
 			$scope.desiredUserId = res.data;
-			console.log('target: ');
-			console.log( $scope.desiredUserId);
+			//console.log('target: ');
+			//console.log( $scope.desiredUserId);
 			numProcessed++;
 			allDone(callback);
 		});
@@ -91,26 +92,29 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 		//console.log("build my graph");
 		console.log($scope.myUserId + ' to '+$scope.desiredUserId);
 		var buildGraph = new BuildingGraph($scope.myUserId,$scope.desiredUserId); //current user id, desire user id
-		buildGraph.initMe($scope.userIdToSubscriberIds,$scope.chatterGroupIdToSubscriberIds,$scope.userIdToChatterGroupIds,$scope.idToName);
-		//buildGraph.build();
-		$scope.myNode = buildGraph.rootNode;
-		$scope.globalUserMap = buildGraph.globalUsers;
-		$scope.d3object = buildGraph.d3object;
-		var shorestPaths = buildGraph.finalShortestPaths;
-		for(var i=0;i<shorestPaths.length;i++)
-		{
-			var aPath = shorestPaths[i].reverse(); //reverse so order is from you to desire user
-			$scope.finalShortestPaths.push([]);
-			for(var j=0;j<aPath.length;j++)
+		$scope.doneInit = buildGraph.initMe($scope.userIdToSubscriberIds,$scope.chatterGroupIdToSubscriberIds,$scope.userIdToChatterGroupIds,$scope.idToName);
+		$scope.$watch('doneInit',function(){
+			buildGraph.build();
+		
+			$scope.myNode = buildGraph.rootNode;
+			$scope.globalUserMap = buildGraph.globalUsers;
+			$scope.d3object = buildGraph.d3object;
+			var shorestPaths = buildGraph.finalShortestPaths;
+			for(var i=0;i<shorestPaths.length;i++)
 			{
-				if(aPath[j].userId.substring(0,3) == '005') //is user
-					$scope.finalShortestPaths[i].push( aPath[j].userId ); //$scope.idToName[ "userMap" ][ aPath[j].userId ].Name
-				else //is a chatter group
-					$scope.finalShortestPaths[i].push( aPath[j].userId ); //$scope.idToName[ "chatterGroupMap" ][ aPath[j].userId ].Name
+				var aPath = shorestPaths[i].reverse(); //reverse so order is from you to desire user
+				$scope.finalShortestPaths.push([]);
+				for(var j=0;j<aPath.length;j++)
+				{
+					if(aPath[j].userId.substring(0,3) == '005') //is user
+						$scope.finalShortestPaths[i].push( aPath[j].userId ); //$scope.idToName[ "userMap" ][ aPath[j].userId ].Name
+					else //is a chatter group
+						$scope.finalShortestPaths[i].push( aPath[j].userId ); //$scope.idToName[ "chatterGroupMap" ][ aPath[j].userId ].Name
+				}
 			}
-		}
 
-		callback($scope);
+			callback($scope);
+		});
 	}
 	
 });
