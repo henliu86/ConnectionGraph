@@ -6,7 +6,7 @@ exports.boot = function(myOrg){
 	org = myOrg;
 } 
 exports.index = function(req, res){
-	
+	console.log("in /index!! source: "+req.params.sourceUserId + " target: "+req.params.targetUserId);
 	if(req.session.code)
 	{
 		console.log("GO HOME");
@@ -15,7 +15,7 @@ exports.index = function(req, res){
 	else
 	{
 		console.log("GO GET AUTH");
-		res.redirect('/');
+		res.redirect('/?sourceUserId='+req.params.sourceUserId+'&targetUserId='+req.params.targetUserId);
 	}
 };
 
@@ -26,7 +26,6 @@ exports.oauth = function(req, res){
 	//var myOauth = new Object();
 	//myOauth.code = req.query.code;
 	req.session.code = req.query.code;
-	console.log(req);
 	console.log("access code: " + req.session.code);
 	//res.send('go back to index.ejs');
 
@@ -37,7 +36,8 @@ exports.oauth = function(req, res){
 			console.log('oauth: ')
 			console.log(oauth);        
 			req.session.oauth = oauth; //assign session.oath to the result of oauth
-			res.redirect('/index');
+			console.log('redirect To: ' + '/index?sourceUserId='+req.params.sourceUserId+'&targetUserId='+req.params.targetUserId);
+			res.redirect('/index?sourceUserId='+req.params.sourceUserId+'&targetUserId='+req.params.targetUserId);
 		} else {
 			console.log('Error: ' + err.message);
 		}

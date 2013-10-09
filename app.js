@@ -48,52 +48,21 @@ app.set('alreadyOAuth',false);
 //routes
 routes.boot(org); //pass org in here to route index.js
 app.get('/',function(req, res){
-	console.log("IN /");
+	console.log("In /!!! sourceUserId: "+req.params.sourceUserId + " targetUserId: "+req.params.targetUserId);
 	res.redirect(org.getAuthUri());
 });
-var info = {sourceUserId: null,targetUserId: null};
 
 app.get('/sourceUserId', function(req,res){
-	res.send(info.sourceUserId);
+	res.send(req.params.sourceUserId);
 });
 app.get('/targetUserId', function(req,res){
-	res.send(info.targetUserId);
+	res.send(req.params.targetUserId);
 });
 app.get('/index',routes.index);
 app.get('/oauth/callback', routes.oauth);
-/*
-app.get('/oauth/callback', function(req, res){
-	//var myOauth = new Object();
-	//myOauth.code = req.query.code;
-	req.session.code = req.query.code;
-	console.log("access code: " + req.session.code);
-	//res.send('go back to index.ejs');
-
-	//get access_token
-	org.authenticate({ code: req.session.code }, function(err, oauth){
-		if(!err) 
-		{
-			console.log('oauth: ')
-			console.log(oauth);        
-			req.session.oauth = oauth; //assign session.oath to the result of oauth
-			res.redirect('/index/'+info.sourceUserId+'/'+info.targetUerId);
-		} else {
-			console.log('Error: ' + err.message);
-		}
-    });
-});
-*/
-
 
 app.get('/users', user.list);
 app.get('/auth/salesforce',function(req, res){
-	res.redirect(org.getAuthUri());
-});
-
-app.get('/:sourceUserId/:targetUserId',function(req, res){
-	info.sourceUserId = req.params.sourceUserId;
-	info.targetUserId = req.params.targetUserId;
-	console.log("GOT SOURCE AND TARGET! source: "+info.sourceUserId + " target: "+info.targetUserId);
 	res.redirect(org.getAuthUri());
 });
 
