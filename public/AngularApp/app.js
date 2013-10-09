@@ -2,8 +2,8 @@
 var graphApp = angular.module("graphapp",["debug"]);
 var debugApp = angular.module("debug",[]);
 
-graphApp.config(function($routeProvider){
-	console.log($routeProvider);
+graphApp.config(function($routeProvider,$route){
+	console.log($route.current);
 	$routeProvider
 	.when('/index',{
 		templateUrl: "/AngularApp/views/ConnectionGraph.html",
