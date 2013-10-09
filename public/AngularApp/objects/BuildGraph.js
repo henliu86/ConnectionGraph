@@ -103,6 +103,7 @@ BuildingGraph.prototype = {
 		this.rootNode.d3index = this.d3indexCount++;
 		//add d3 node
 		var me = this.idToName[ 'userMap' ][ this.rootNode.userId ];
+		console.log("me is: "+me);
 		this.addD3Node(this.rootNode.userId,me.Name, me.FullPhotoUrl);
 
 		//Users I am following
@@ -151,7 +152,8 @@ BuildingGraph.prototype = {
 
 		//HERE COME RECURSION! BUILD THAT SHIT
 		this.finalShortestPaths = this.buildHelper(this.rootNode);
-		this.finalShortestPaths = this.finalShortestPaths.uniquelists();
+		if(this.finalShortestPaths != null)
+			this.finalShortestPaths = this.finalShortestPaths.uniquelists();
 		console.log("finalShortest: ");		
 		console.log(this.finalShortestPaths);
 		this.addYourself();

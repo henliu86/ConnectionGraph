@@ -1,6 +1,7 @@
 //salesforceconnections is the factory
 angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q, salesforceconnections, $routeParams){
 	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WiAAK/00530000008L9njAAC
+	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WR/00530000008B7Wi    elliot to vanessa
 /*	
 	$scope.desiredUserId = $routeParams.sourceUserId;//'00530000008B7WiAAK';
 	$scope.myUserId = $routeParams.targetUserId; //'00530000008L9njAAC';
@@ -88,6 +89,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	//once all data have been loaded, directive calls this function to build graph
 	function buildMyGraph(callback){
 		//console.log("build my graph");
+		console.log($scope.myUserId + ' to '+$scope.desiredUserId);
 		var buildGraph = new BuildingGraph($scope.myUserId,$scope.desiredUserId); //current user id, desire user id
 		buildGraph.initMe($scope.userIdToSubscriberIds,$scope.chatterGroupIdToSubscriberIds,$scope.userIdToChatterGroupIds,$scope.idToName);
 		buildGraph.build();
