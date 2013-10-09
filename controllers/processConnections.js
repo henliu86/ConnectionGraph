@@ -9,11 +9,15 @@ var chatterGroupIdToSubscriberIds;
 var doneWithFunctionCall = false;//done with setting both userIdToChatterGroupIds and chatterGroupIdToSubscriberIds
 
 var sourceAndTargetUserId = {
-	'sourceTargetId': null,
+	'sourceUserId': null,
 	'targetUserId': null
 };
-export.sourceAndTargetUserId = function(){
+exports.getSourceAndTargetUserId = function(){
 	return sourceAndTargetUserId;
+}
+exports.setSourceAndTargetUserId = function(s,t){
+	sourceAndTargetUserId.sourceUserId = s;
+	sourceAndTargetUserId.targetUserId = t;
 }
 
 ////map all subscribers

@@ -53,16 +53,15 @@ app.get('/',function(req, res){
 });
 app.get('/index',routes.index);
 app.get('/index/:sourceUserId/:targetUserId',function(req, res){
-	myData.sourceAndTargetUserId.sourceUserId = req.params.sourceUserId;
-	myData.sourceAndTargetUserId.targetUserId = req.params.targetUserId;
+	myData.setSourceAndTargetUserId(req.params.sourceUserId,req.params.targetUserId);
 	res.redirect('/index');
 });
 
 app.get('/sourceUserId', function(req,res){
-	res.send(myData.sourceAndTargetUserId.sourceUserId);
+	res.send(myData.getSourceAndTargetUserId().sourceUserId);
 });
 app.get('/targetUserId', function(req,res){
-	res.send(myData.sourceAndTargetUserId.targetUserId);
+	res.send(myData.getSourceAndTargetUserId().targetUserId);
 });
 app.get('/oauth/callback', routes.oauth);
 

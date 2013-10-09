@@ -1,6 +1,6 @@
 //salesforceconnections is the factory
 angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q, salesforceconnections, $routeParams){
-	//http://damp-castle-2728.herokuapp.com/00530000008B7WiAAK/00530000008L9njAAC
+	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WiAAK/00530000008L9njAAC
 /*	
 	$scope.desiredUserId = $routeParams.sourceUserId;//'00530000008B7WiAAK';
 	$scope.myUserId = $routeParams.targetUserId; //'00530000008L9njAAC';
