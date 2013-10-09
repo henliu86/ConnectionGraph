@@ -7,11 +7,11 @@ graphApp.config(function($routeProvider){
 	.when('/index',{
 		templateUrl: "/AngularApp/views/ConnectionGraph.html",
 		controller: "ConnectionGraphCtrl"
-	})
+	})/*
 	.when('/debug',{
 		templateUrl: "/AngularApp/views/debug.html",
 		controller: "debugCtrl"
-	})
+	})*/
 	.otherwise({
 		template:"This page does not exist! Check your angular path yo!"
 	});
