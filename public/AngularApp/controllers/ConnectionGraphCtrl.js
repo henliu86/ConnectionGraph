@@ -3,6 +3,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WiAAK/00530000008L9njAAC		vanessa to henry
 	//http://damp-castle-2728.herokuapp.com/index/00530000008L9njAAC/00530000008B7WiAAK    henry to vanessa
 	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WiAAK/00530000008B7WRAA0 vanessa to elliot
+	//http://damp-castle-2728.herokuapp.com?sourceUserId=00530000008B7WiAAK&targetUserId=00530000008L9njAAC
 	//NOTE: USER ID MUST INCLUDE THE LAST 3 CHARACTERS!!!!!!!!
 
 	$scope.includeChatterGroups = false;
@@ -23,6 +24,9 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 			numProcessed = 0; //reset so data will update on refresh
 		}
 	}
+	function getURLParameter(name) {
+		return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+	}
 
 	//factory getting json objects and userIds into scope
 	//gotta do it this way because fucken factory calls are all async
@@ -37,6 +41,8 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 		});
 		salesforceconnections.getTargetUsers().then(function(res){
 			$scope.desiredUserId = res.data;
+			if($scope.desiredUserId == null)
+				console.log(getURLParameter('u'));
 			//console.log('target: ');
 			//console.log( $scope.desiredUserId);
 			numProcessed++;
