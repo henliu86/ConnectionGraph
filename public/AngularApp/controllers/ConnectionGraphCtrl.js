@@ -9,13 +9,6 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	console.log($routeParams.targetUserId);
 */
 	console.log("HERE WE GO!");
-	$scope.desiredUserId = salesforceconnections.getSourceUsers();//'00530000008B7WiAAK';
-	$scope.myUserId = salesforceconnections.getTargetUsers();
-	console.log('target: ');
-	console.log( $scope.desiredUserId);
-	console.log('source: ');
-	console.log( $scope.myUserId);
-
 	$scope.includeChatterGroups = false;
 	var numProcessed = 0;
 	var buildDefer = $q.defer();
@@ -27,16 +20,32 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	
 	//check if all processes have been completed
 	function allDone(callback){
-		if(numProcessed == 5)
+		if(numProcessed == 7)
 		{
 			buildMyGraph(callback);
 			numProcessed = 0; //reset so data will update on refresh
 		}
 	}
 
-	//factory getting json string into scope
+	//factory getting json objects and userIds into scope
+	//gotta do it this way because fucken factory calls are all async
 	$scope.getSalesforceJSON = function(callback)	
 	{
+		salesforceconnections.getSourceUsers().then(function(res){
+			$scope.myUserId = res.data;
+			console.log('source: ');
+			console.log( $scope.myUserId);
+			numProcessed++;
+			allDone(callback);
+		});
+		salesforceconnections.getTargetUsers().then(function(res){
+			$scope.desiredUserId = res.data;
+			console.log('target: ');
+			console.log( $scope.desiredUserId);
+			numProcessed++;
+			allDone(callback);
+		});
+
 		//console.log(callback);
 		salesforceconnections.getOauthObject().then(function(res){
 			$scope.oauthObj = res.data;
