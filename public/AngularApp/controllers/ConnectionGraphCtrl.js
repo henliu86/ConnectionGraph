@@ -4,7 +4,7 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	//http://damp-castle-2728.herokuapp.com/index/00530000008L9njAAC/00530000008B7WiAAK    henry to vanessa
 	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WiAAK/00530000008B7WRAA0 vanessa to elliot
 	//NOTE: USER ID MUST INCLUDE THE LAST 3 CHARACTERS!!!!!!!!
-	
+
 	$scope.includeChatterGroups = false;
 	var numProcessed = 0;
 	var buildDefer = $q.defer();

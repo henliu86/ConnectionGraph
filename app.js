@@ -7,6 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
+var url = require('url');
 var path = require('path');
 var nforce = require('nforce');
 var app = express();
@@ -49,6 +50,8 @@ app.set('alreadyOAuth',false);
 routes.boot(org); //pass org in here to route index.js
 
 app.get('/',function(req, res){
+	console.log("in /index with params old way!! source: "+req.query.sourceUserId + " target: "+req.query.targetUserId);
+	myData.setSourceAndTargetUserId(req.query.sourceUserId,req.query.targetUserId);
 	res.redirect('/index');
 });
 app.get('/index',routes.index);
@@ -57,7 +60,13 @@ app.get('/index/:sourceUserId/:targetUserId',function(req, res){
 	myData.setSourceAndTargetUserId(req.params.sourceUserId,req.params.targetUserId);
 	res.redirect('/index');
 });
-
+/*
+app.get('/index?sourceUserId=:sourceUserId&targetUserId=:targetUserId',function(req, res){
+	console.log("in /index with params!! source: "+req.params.sourceUserId + " target: "+req.params.targetUserId);
+	myData.setSourceAndTargetUserId(req.params.sourceUserId,req.params.targetUserId);
+	res.redirect('/index');
+});
+*/
 app.get('/sourceUserId', function(req,res){
 	console.log('Node get source User Id:');
 	console.log(myData.getSourceAndTargetUserId().sourceUserId);
