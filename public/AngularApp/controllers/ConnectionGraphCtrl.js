@@ -11,7 +11,10 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 	console.log("HERE WE GO!");
 	$scope.desiredUserId = salesforceconnections.getSourceUsers();//'00530000008B7WiAAK';
 	$scope.myUserId = salesforceconnections.getTargetUsers();
-	console.log('target: '+ $scope.desiredUserId + ' ,source: '+ $scope.myUserId);
+	console.log('target: ');
+	console.log( $scope.desiredUserId);
+	console.log('source: ');
+	console.log( $scope.myUserId);
 
 	$scope.includeChatterGroups = false;
 	var numProcessed = 0;

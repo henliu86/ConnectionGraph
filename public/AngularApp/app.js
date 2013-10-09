@@ -13,7 +13,7 @@ graphApp.config(function($routeProvider){
 		controller: "debugCtrl"
 	})
 	.otherwise({
-		template: "/AngularApp/views/ConnectionGraph.html", //"This page does not exist! Check your angular path yo!"
+		templateUrl: "/AngularApp/views/ConnectionGraph.html", //"This page does not exist! Check your angular path yo!"
 		controller: "ConnectionGraphCtrl"
 	});
 });
