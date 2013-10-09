@@ -2,8 +2,7 @@
 var graphApp = angular.module("graphapp",["debug"]);
 var debugApp = angular.module("debug",[]);
 
-graphApp.config(function($routeProvider,$route){
-	console.log($route.current);
+graphApp.config(function($routeProvider){
 	$routeProvider
 	.when('/index',{
 		templateUrl: "/AngularApp/views/ConnectionGraph.html",
@@ -14,7 +13,9 @@ graphApp.config(function($routeProvider,$route){
 		controller: "debugCtrl"
 	})*/
 	.otherwise({
-		template:"This page does not exist! Check your angular path yo!"
+		templateUrl: "/AngularApp/views/ConnectionGraph.html",
+		controller: "ConnectionGraphCtrl"
+		//template:"This page does not exist! Check your angular path yo!"
 	});
 });
 
