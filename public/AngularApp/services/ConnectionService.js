@@ -33,10 +33,12 @@ angular.module("graphapp").factory('salesforceconnections',function($http){
 		},
 		
 		getSourceUsers : function(){ //go to node server and get users passed from parameters
+			console.log("at getSourceUsers");
 			$http({
 				url: '/sourceUserId',
 				method: 'GET'
 			}).success(function(data,status,headers,config){
+				console.log(data);
 				return data;
 			}).error(function(data,status,headers,config){
 				console.log('ERROR: at get sourceUserId');
