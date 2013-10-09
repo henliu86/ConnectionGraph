@@ -1,15 +1,10 @@
 //salesforceconnections is the factory
 angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q, salesforceconnections, $routeParams){
-	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WiAAK/00530000008L9njAAC
-	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WR/00530000008B7Wi    elliot to vanessa
-/*	
-	$scope.desiredUserId = $routeParams.sourceUserId;//'00530000008B7WiAAK';
-	$scope.myUserId = $routeParams.targetUserId; //'00530000008L9njAAC';
-	console.log($routeParams);
-	console.log($routeParams.sourceUserId);
-	console.log($routeParams.targetUserId);
-*/
-	console.log("HERE WE GO!");
+	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WiAAK/00530000008L9njAAC		vanessa to henry
+	//http://damp-castle-2728.herokuapp.com/index/00530000008L9njAAC/00530000008B7WiAAK    henry to vanessa
+	//http://damp-castle-2728.herokuapp.com/index/00530000008B7WiAAK/00530000008B7WRAA0 vanessa to elliot
+	//NOTE: USER ID MUST INCLUDE THE LAST 3 CHARACTERS!!!!!!!!
+	
 	$scope.includeChatterGroups = false;
 	var numProcessed = 0;
 	var buildDefer = $q.defer();
