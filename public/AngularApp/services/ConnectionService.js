@@ -36,13 +36,13 @@ angular.module("graphapp").factory('salesforceconnections',function($http){
 			return $http({
 				url: '/sourceUserId',
 				method: 'GET'
-			});
+			}).data;
 		},
 		getTargetUsers : function(){ //go to node server and get users passed from parameters
 			return $http({
 				url: '/targetUserId',
 				method: 'GET'
-			});
+			}).data;
 		}
 		
 
