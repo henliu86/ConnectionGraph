@@ -89,13 +89,13 @@ app.get('/targetUserId', function(req,res){
 app.get('/oauth/callback', routes.oauth);
 
 app.post('/', function(req,res){
-	console.log(req.route);
-	console.log(req.originalUrl);
-	console.log("in /index with params old way1!! source: "+req.query.sourceUserId + " target: "+req.query.targetUserId);
-	console.log("in /index with params old way2!! source: "+req.param('sourceUserId') + " target: "+req.param('targetUserId'));
-	console.log("in /index with params old way3!! source: "+req.body.sourceUserId + " target: "+req.body.targetUserId);
+	console.log(req);
+	console.log('original url: '+req.originalUrl);
+	console.log("in / POST with params old way1!! source: "+req.query.sourceUserId + " target: "+req.query.targetUserId);
+	console.log("in / POST with params old way2!! source: "+req.param('sourceUserId') + " target: "+req.param('targetUserId'));
+	console.log("in / POST with params old way3!! source: "+req.body.sourceUserId + " target: "+req.body.targetUserId);
 	
-	
+
 	//Signed Request (POST). Already have the oauth in req
 	var reqBody = req.body.signed_request;   
 	var requestSegments = reqBody.split('.');    
