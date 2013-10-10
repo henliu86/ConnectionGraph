@@ -101,8 +101,8 @@ app.post('/', function(req,res){
 	
 	//new oauth object
 	oauth = new Object();
-	oauth.access_token = requestContext.oauthToken;
-	oauth.instance_url = requestContext.instanceUrl;
+	oauth.access_token = requestContext.client.oauthToken;
+	oauth.instance_url = requestContext.client.instanceUrl;
 	oauth.userId = requestContext.userId;
 	req.session.oauth = oauth; //save to session
 
