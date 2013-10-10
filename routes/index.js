@@ -6,7 +6,7 @@ exports.boot = function(myOrg){
 	org = myOrg;
 } 
 exports.index = function(req, res){
-	if(req.session.code)
+	if(req.session.oauth)
 	{
 		console.log("GO HOME");
 		res.render('index', { title: 'Graph APP' });
