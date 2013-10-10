@@ -49,6 +49,13 @@ app.set('alreadyOAuth',false);
 //routes
 routes.boot(org); //pass org in here to route index.js
 
+
+app.get('/index/:sourceUserId/:targetUserId',function(req, res){
+	console.log("in /index with params!! source: "+req.params.sourceUserId + " target: "+req.params.targetUserId);
+	myData.setSourceAndTargetUserId(req.params.sourceUserId,req.params.targetUserId);
+	res.redirect('/index');
+});
+/*
 app.get('/',function(req, res){
 	console.log(req.route);
 	console.log(req.originalUrl);
@@ -59,12 +66,9 @@ app.get('/',function(req, res){
 	myData.setSourceAndTargetUserId( req.param('sourceUserId'),req.param('targetUserId') );
 	res.redirect('/index');
 });
+*/
 app.get('/index',routes.index);
-app.get('/index/:sourceUserId/:targetUserId',function(req, res){
-	console.log("in /index with params!! source: "+req.params.sourceUserId + " target: "+req.params.targetUserId);
-	myData.setSourceAndTargetUserId(req.params.sourceUserId,req.params.targetUserId);
-	res.redirect('/index');
-});
+
 /*
 app.get('/index?sourceUserId=:sourceUserId&targetUserId=:targetUserId',function(req, res){
 	console.log("in /index with params!! source: "+req.params.sourceUserId + " target: "+req.params.targetUserId);
