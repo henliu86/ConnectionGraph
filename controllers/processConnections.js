@@ -24,8 +24,8 @@ exports.setSourceAndTargetUserId = function(s,t){
 exports.getUserIdToSubscriberIds = function(org,req,res){
 	
 		userIdToSubscriberIds={};
-		//console.log('oauth Obj:');
-		//console.log(oauthObj);
+		console.log('oauth Obj:');
+		console.log(req.session.oauth);
 
 		var q = "select parentId,subscriberId from EntitySubscription where NetworkId = null";//default network
 		var result;
