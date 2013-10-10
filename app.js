@@ -100,7 +100,10 @@ app.post('/', function(req,res){
 	var reqBody = req.body.signed_request;   
 	var requestSegments = reqBody.split('.');    
 	var requestContext = JSON.parse(new Buffer(requestSegments[1], 'base64').toString('ascii'));
-	console.log(requestContext);
+	//console.log(requestContext);
+	var myParams = reqestContext.context.environment.parameters;
+	console.log(myParams);
+	
 	oauth = new Object();
 	oauth.access_token = requestContext.oauthToken;
 	oauth.instance_url = requestContext.instanceUrl;
