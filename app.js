@@ -51,6 +51,7 @@ routes.boot(org); //pass org in here to route index.js
 
 
 app.get('/index/:sourceUserId/:targetUserId',function(req, res){
+	console.log(req.body);
 	console.log("in /index with params!! source: "+req.params.sourceUserId + " target: "+req.params.targetUserId);
 	myData.setSourceAndTargetUserId(req.params.sourceUserId,req.params.targetUserId);
 	res.redirect('/index');
