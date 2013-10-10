@@ -50,7 +50,12 @@ app.set('alreadyOAuth',false);
 routes.boot(org); //pass org in here to route index.js
 
 app.get('/',function(req, res){
-	console.log("in /index with params old way!! source: "+req.param('sourceUserId') + " target: "+req.param('targetUserId'));
+	console.log(req.route);
+	console.log(req.originalUrl);
+	console.log("in /index with params old way1!! source: "+req.query.sourceUserId + " target: "+req.query.targetUserId);
+	console.log("in /index with params old way2!! source: "+req.param('sourceUserId') + " target: "+req.param('targetUserId'));
+	console.log("in /index with params old way3!! source: "+req.body.sourceUserId + " target: "+req.body.targetUserId);
+	
 	myData.setSourceAndTargetUserId( req.param('sourceUserId'),req.param('targetUserId') );
 	res.redirect('/index');
 });
