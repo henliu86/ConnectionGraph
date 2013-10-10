@@ -101,14 +101,17 @@ app.post('/', function(req,res){
 	var requestSegments = reqBody.split('.');    
 	var requestContext = JSON.parse(new Buffer(requestSegments[1], 'base64').toString('ascii'));
 	//console.log(requestContext);
+
+	//get params passed to canvas app on visualforce page
 	var myParams = requestContext.context.environment.parameters;
-	console.log(myParams);
+	myData.setSourceAndTargetUserId( myParams.sourceUserId,myParams.targetUserId );
 	
+	//new oauth object
 	oauth = new Object();
 	oauth.access_token = requestContext.oauthToken;
 	oauth.instance_url = requestContext.instanceUrl;
 	oauth.userId = requestContext.userId;
-	req.session.oauth = oauth;
+	req.session.oauth = oauth; //save to session
 
 	res.redirect('/index');
 });
