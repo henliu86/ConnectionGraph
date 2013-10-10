@@ -89,7 +89,7 @@ app.get('/targetUserId', function(req,res){
 app.get('/oauth/callback', routes.oauth);
 
 app.post('/', function(req,res){
-	console.log(req);
+	//console.log(req);
 	console.log('original url: '+req.originalUrl);
 	console.log("in / POST with params old way1!! source: "+req.query.sourceUserId + " target: "+req.query.targetUserId);
 	console.log("in / POST with params old way2!! source: "+req.param('sourceUserId') + " target: "+req.param('targetUserId'));
@@ -100,7 +100,7 @@ app.post('/', function(req,res){
 	var reqBody = req.body.signed_request;   
 	var requestSegments = reqBody.split('.');    
 	var requestContext = JSON.parse(new Buffer(requestSegments[1], 'base64').toString('ascii'));
-	
+	console.log(requestContext);
 	oauth = new Object();
 	oauth.access_token = requestContext.oauthToken;
 	oauth.instance_url = requestContext.instanceUrl;
