@@ -93,7 +93,7 @@ app.post('/', function(req,res){
 	var reqBody = req.body.signed_request;   
 	var requestSegments = reqBody.split('.');    
 	var requestContext = JSON.parse(new Buffer(requestSegments[1], 'base64').toString('ascii'));
-	//console.log(requestContext);
+	console.log(requestContext);
 
 	//get params passed to canvas app on visualforce page
 	var myParams = requestContext.context.environment.parameters;
