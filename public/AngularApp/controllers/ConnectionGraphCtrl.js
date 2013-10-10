@@ -41,8 +41,10 @@ angular.module("graphapp").controller("ConnectionGraphCtrl",function($scope, $q,
 		});
 		salesforceconnections.getTargetUsers().then(function(res){
 			$scope.desiredUserId = res.data;
+			/*
 			if($scope.desiredUserId == null)
 				console.log(getURLParameter('u'));
+			*/
 			//console.log('target: ');
 			//console.log( $scope.desiredUserId);
 			numProcessed++;
