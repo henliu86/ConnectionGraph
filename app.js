@@ -54,6 +54,21 @@ app.get('/index/:sourceUserId/:targetUserId',function(req, res){
 	console.log(req.body);
 	console.log("in /index with params!! source: "+req.params.sourceUserId + " target: "+req.params.targetUserId);
 	myData.setSourceAndTargetUserId(req.params.sourceUserId,req.params.targetUserId);
+	
+
+	//Signed Request (POST). Already have the oauth in req
+	var reqBody = req.body.signed_request;   
+	var requestSegments = reqBody.split('.');    
+	var requestContext = JSON.parse(new Buffer(requestSegments[1], 'base64').toString('ascii'));
+	
+	oauth = new Object();
+	oauth.access_token = requestContext.oauthToken;
+	oauth.instance_url = requestContext.instanceUrl;
+	oauth.userId = requestContext.userId;
+	req.session.oauth = oauth;
+
+
+
 	res.redirect('/index');
 });
 /*
@@ -92,7 +107,7 @@ app.get('/auth/salesforce',function(req, res){
 	/*******************************
 	* res.redirect(org.getAuthUri()); //Oauth Webflow (GET)
 	*******************************/
-	
+
 	//Signed Request (POST). Already have the oauth in req
 	var reqBody = req.body.signed_request;   
 	var requestSegments = reqBody.split('.');    
