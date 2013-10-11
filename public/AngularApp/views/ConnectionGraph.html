@@ -22,7 +22,7 @@
 								<!-- show user -->
 								<div ng-show=" idToName[ 'userMap' ][ user ] ">
 									<div class="profileImgDiv profileArrow" ng-hide="$first">
-										<img src="https://cdn1.iconfinder.com/data/icons/blueberry/32/arrow_down.png"/>
+										<img class="profileArrowImg" src="https://cdn1.iconfinder.com/data/icons/blueberry/32/arrow_down.png"/>
 									</div>
 
 									<div class="profileImgDiv">
@@ -52,7 +52,7 @@
 								<!-- show chatter group -->
 								<div ng-show=" idToName[ 'chatterGroupMap' ][ user ] ">
 									<div class="profileImgDiv profileArrow" ng-hide="$first">
-										<img src="https://cdn1.iconfinder.com/data/icons/blueberry/32/arrow_down.png"/>
+										<img class="profileArrowImg" src="https://cdn1.iconfinder.com/data/icons/blueberry/32/arrow_down.png"/>
 									</div>
 									<div class="profileImgDiv">
 										<a href="{{oauthObj.instance_url}}/{{ idToName[ 'chatterGroupMap' ][ user ].Id }}" target="_top">

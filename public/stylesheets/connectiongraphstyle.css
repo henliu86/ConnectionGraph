@@ -22,7 +22,11 @@ div.bar {
 }
 .profileArrow
 {
-	margin: 0 0 5px 9px;
+	margin: 0 0 5px 19px;
+}
+.profileArrowImg
+{
+	width:15px;
 }
 .profileDetailDiv
 {
