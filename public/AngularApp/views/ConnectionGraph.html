@@ -21,7 +21,7 @@
 							<li class="list-group-item animate-repeat" ng-repeat="user in path | filter:q">
 								<!-- show user -->
 								<div ng-show=" idToName[ 'userMap' ][ user ] ">
-									<div class="profileImgDiv" ng-if="$index != 0">
+									<div class="profileImgDiv" ng-if="{{$index}} != 0">
 										<img src="https://cdn1.iconfinder.com/data/icons/blueberry/32/arrow_down.png"/>
 									</div>
 

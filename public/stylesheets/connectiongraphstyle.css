@@ -17,6 +17,7 @@ div.bar {
 {
 	position:relative;
 	float:left;
+	clear:left;
 }
 .profileDetailDiv
 {
