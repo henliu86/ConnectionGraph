@@ -12,6 +12,7 @@ div.bar {
 {
 	position:relative;
 	float:left;
+	clear:left;
 }
 .profileImgDiv
 {
@@ -61,5 +62,5 @@ ul
 .well
 {
 	margin-bottom: 8px;
-	padding: 2px 5px;
+	padding: 2px 4px;
 }
