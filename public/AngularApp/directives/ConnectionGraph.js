@@ -65,7 +65,6 @@ angular.module("graphapp").directive("myjson",function(){
 						//otherwiseDoAwesomeThing();
 						console.log('clicked on ' + d.Id);
 						parent.window.location.href = scope.oauthObj.instance_url + '/' + d.Id;
-
 					});
 
 					force.on("tick", function() {

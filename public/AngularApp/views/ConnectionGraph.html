@@ -11,7 +11,7 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h5 class="panel-title well">
-						I ({{idToName[ "userMap" ][ myUserId ].Name}}) have {{finalShortestPaths.length}} paths to {{idToName[ "userMap" ][ desiredUserId ].Name}}
+						I ({{idToName[ "userMap" ][ myUserId ].Name}}) have {{finalShortestPaths.length}} path(s) to {{idToName[ "userMap" ][ desiredUserId ].Name}}
 					</h5>
 				</div>
 				<div class="panel-body">
@@ -21,6 +21,10 @@
 							<li class="list-group-item animate-repeat" ng-repeat="user in path | filter:q">
 								<!-- show user -->
 								<div ng-show=" idToName[ 'userMap' ][ user ] ">
+									<div class="profileImgDiv" ng-if="$index != 0">
+										<img src="https://cdn1.iconfinder.com/data/icons/blueberry/32/arrow_down.png"/>
+									</div>
+
 									<div class="profileImgDiv">
 										<a href="{{oauthObj.instance_url}}/{{ idToName[ 'userMap' ][ user ].Id }}" target="_top">
 											<img class="profileImg" src="{{ idToName[ 'userMap' ][ user ].FullPhotoUrl }}" alt="img"/>
@@ -47,6 +51,9 @@
 
 								<!-- show chatter group -->
 								<div ng-show=" idToName[ 'chatterGroupMap' ][ user ] ">
+									<div class="profileImgDiv">
+										<img src="https://cdn1.iconfinder.com/data/icons/blueberry/32/arrow_down.png"/>
+									</div>
 									<div class="profileImgDiv">
 										<a href="{{oauthObj.instance_url}}/{{ idToName[ 'chatterGroupMap' ][ user ].Id }}" target="_top">
 											<img class="profileImg" src="{{ idToName[ 'chatterGroupMap' ][ user ].FullPhotoUrl }}" alt="img"/>
