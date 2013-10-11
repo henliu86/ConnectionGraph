@@ -7,8 +7,9 @@ div.bar {
 
 #myD3Div
 {
-	width: 450px;
-	margin: 0 auto;
+	width: 750px;
+	float: left;
+	clear: left;
 }
 #connectionGraphic
 {
