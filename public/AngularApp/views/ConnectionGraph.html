@@ -21,7 +21,7 @@
 							<li class="list-group-item animate-repeat" ng-repeat="user in path | filter:q">
 								<!-- show user -->
 								<div ng-show=" idToName[ 'userMap' ][ user ] ">
-									<div class="profileImgDiv" style="margin-left: 9px;" ng-hide="$first">
+									<div class="profileImgDiv profileArrow" ng-hide="$first">
 										<img src="https://cdn1.iconfinder.com/data/icons/blueberry/32/arrow_down.png"/>
 									</div>
 
@@ -51,7 +51,7 @@
 
 								<!-- show chatter group -->
 								<div ng-show=" idToName[ 'chatterGroupMap' ][ user ] ">
-									<div class="profileImgDiv">
+									<div class="profileImgDiv profileArrow" ng-hide="$first">
 										<img src="https://cdn1.iconfinder.com/data/icons/blueberry/32/arrow_down.png"/>
 									</div>
 									<div class="profileImgDiv">

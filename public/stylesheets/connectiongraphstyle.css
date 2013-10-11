@@ -20,6 +20,10 @@ div.bar {
 	float:left;
 	clear:left;
 }
+.profileArrow
+{
+	margin: 0 0 5px 9px;
+}
 .profileDetailDiv
 {
 	position:relative;
