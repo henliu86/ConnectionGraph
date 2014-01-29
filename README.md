@@ -29,7 +29,7 @@ public class GraphMyFollowerCtrl
 ```
 
 ###3. Create Connected App in Salesforce
-```
+
 **Connected App Name:** Graph Connection
 **API Name:** Graph_Connection
 **Enable OAuth Setting:** true
@@ -39,7 +39,7 @@ public class GraphMyFollowerCtrl
 **Canvas App URL:** https://damp-castle-2728.herokuapp.com
 **Access Method:** Signed Request (POST)
 **Locations:** [Chatter Tab,Visualforce Page]
-```
+
 
 ###4. Add to Subtab
 Setup->Create->Apps->Subtab for others-> add "Graph User Connections"
