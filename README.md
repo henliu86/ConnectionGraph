@@ -1,7 +1,7 @@
 ConnectionGraph
 ===============
 
-####1. Create a visualforce page
+####1. Create a Canvas App in Visualforce page
 ```html
 <apex:page showHeader="false" controller="GraphMyFollowerCtrl">
     <apex:canvasApp developerName="Graph_Connection" 
