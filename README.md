@@ -30,15 +30,15 @@ public class GraphMyFollowerCtrl
 
 ###3. Create Connected App in Salesforce
 
-**Connected App Name:** Graph Connection
-**API Name:** Graph_Connection
-**Enable OAuth Setting:** true
-**Callback URL:** https://damp-castle-2728.herokuapp.com/oauth/callback?
-**Selected OAuth Scopes:** all
-**Force.com Canvas:** true
-**Canvas App URL:** https://damp-castle-2728.herokuapp.com
-**Access Method:** Signed Request (POST)
-**Locations:** [Chatter Tab,Visualforce Page]
+- **Connected App Name:** Graph Connection
+- **API Name:** Graph_Connection
+- **Enable OAuth Setting:** true
+- **Callback URL:** https://damp-castle-2728.herokuapp.com/oauth/callback?
+- **Selected OAuth Scopes:** all
+- **Force.com Canvas:** true
+- **Canvas App URL:** https://damp-castle-2728.herokuapp.com
+- **Access Method:** Signed Request (POST)
+- **Locations:** [Chatter Tab,Visualforce Page]
 
 
 ###4. Add to Subtab
